@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-beta.51" />
+    <meta name="theme" content="VuePress Theme Hope" />
+    <title>整合es | HONGXU</title><meta name="description" content="个人博客">
+    <style>
+      :root {
+        --bg-color: #fff;
+      }
+
+      html[data-theme="dark"] {
+        --bg-color: #1d2025;
+      }
+
+      html,
+      body {
+        background: var(--bg-color);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.querySelector("html").setAttribute("data-theme", "dark");
+      }
+    </script>
+    <link rel="stylesheet" href="/assets/style.4e4a549b.css">
+    <link rel="modulepreload" href="/assets/app.73c2932c.js"><link rel="modulepreload" href="/assets/整合es.html.4c9a3e5b.js"><link rel="modulepreload" href="/assets/_plugin-vue_export-helper.cdc0426e.js"><link rel="modulepreload" href="/assets/整合es.html.1dc0e47d.js"><link rel="prefetch" href="/assets/index.html.a2ae31da.js"><link rel="prefetch" href="/assets/fafwfw.html.fb19f8c1.js"><link rel="prefetch" href="/assets/index.html.dced8a1d.js"><link rel="prefetch" href="/assets/FAQ.html.bb1edb1e.js"><link rel="prefetch" href="/assets/【Markdown编辑器快捷键】汇总.html.ba090e64.js"><link rel="prefetch" href="/assets/test.html.ece31899.js"><link rel="prefetch" href="/assets/基本命令使用.html.9fcbb84f.js"><link rel="prefetch" href="/assets/es和kibana安装配置.html.656faf72.js"><link rel="prefetch" href="/assets/es的基本使用.html.b4c6df75.js"><link rel="prefetch" href="/assets/html知识点整理.html.83a414aa.js"><link rel="prefetch" href="/assets/maven问题整理.html.364b8f73.js"><link rel="prefetch" href="/assets/oauth2的全流程.html.f1fb6e2c.js"><link rel="prefetch" href="/assets/静态方法调用注入bean.html.19bfd7e1.js"><link rel="prefetch" href="/assets/sharding-jdbc.html.87f28d8c.js"><link rel="prefetch" href="/assets/docker搭建环境.html.6f21238d.js"><link rel="prefetch" href="/assets/使用Flyway进行数据库迁移.html.97fd1d2d.js"><link rel="prefetch" href="/assets/Quartz任务调度框架原理.html.80dc9ee9.js"><link rel="prefetch" href="/assets/Spring MVC之RequestContextHolder和LocaleContextHolder的使用详解以及使用误区.html.d3371f6b.js"><link rel="prefetch" href="/assets/QueryWrapper常用方法.html.67081961.js"><link rel="prefetch" href="/assets/fastjson的使用——JSON字符串、JSON对象、Java对象的互转.html.6ed95081.js"><link rel="prefetch" href="/assets/格式化日期时间.html.6114dd35.js"><link rel="prefetch" href="/assets/集合stream相关操作.html.de0ba4d9.js"><link rel="prefetch" href="/assets/静态方法和泛型.html.27f3703b.js"><link rel="prefetch" href="/assets/docx和doc互转.html.4c3623e4.js"><link rel="prefetch" href="/assets/word转html.html.28971dfa.js"><link rel="prefetch" href="/assets/word转pdf.html.8acedd9b.js"><link rel="prefetch" href="/assets/如何实现定时任务调度.html.ec30ee6d.js"><link rel="prefetch" href="/assets/如何实现接口幂等性.html.b5f98a8f.js"><link rel="prefetch" href="/assets/生成word.html.95aed98d.js"><link rel="prefetch" href="/assets/日志配置文件.html.ab910729.js"><link rel="prefetch" href="/assets/mysql.html.00d7bf11.js"><link rel="prefetch" href="/assets/mysql8.0安装教程(解压版).html.c693637b.js"><link rel="prefetch" href="/assets/Oracle关于date类型的查询方式及效率浅析.html.e1d4b7ab.js"><link rel="prefetch" href="/assets/Oracle相关.html.6269a6be.js"><link rel="prefetch" href="/assets/id自增长方案.html.75f7ae19.js"><link rel="prefetch" href="/assets/oracle时间戳函数及相关操作.html.290edae3.js"><link rel="prefetch" href="/assets/sequence.html.01913139.js"><link rel="prefetch" href="/assets/批量插入数据.html.24a0fa38.js"><link rel="prefetch" href="/assets/security使用.html.8c0e1d31.js"><link rel="prefetch" href="/assets/security原理.html.a3199eaa.js"><link rel="prefetch" href="/assets/整合elk.html.2f62cad0.js"><link rel="prefetch" href="/assets/整合minio实现文件上传和下载.html.1ebaa1f9.js"><link rel="prefetch" href="/assets/kafka使用.html.668032c1.js"><link rel="prefetch" href="/assets/rabbit安装.html.6245e078.js"><link rel="prefetch" href="/assets/QueryWrapper、LambdaQueryWrapper和LambdaQueryChainWrapper的用法(二).html.3126dc49.js"><link rel="prefetch" href="/assets/UpdateWrapper.html.f21aa8bd.js"><link rel="prefetch" href="/assets/分页.html.7f44a976.js"><link rel="prefetch" href="/assets/基础用法.html.53bfaf7d.js"><link rel="prefetch" href="/assets/批量插入.html.204f7f52.js"><link rel="prefetch" href="/assets/404.html.c5de7dd9.js"><link rel="prefetch" href="/assets/index.html.2f713335.js"><link rel="prefetch" href="/assets/index.html.1a811f74.js"><link rel="prefetch" href="/assets/index.html.79fe6d6e.js"><link rel="prefetch" href="/assets/index.html.dcd15e89.js"><link rel="prefetch" href="/assets/index.html.e8952663.js"><link rel="prefetch" href="/assets/index.html.5ad7ff00.js"><link rel="prefetch" href="/assets/index.html.92637d35.js"><link rel="prefetch" href="/assets/index.html.7e924de7.js"><link rel="prefetch" href="/assets/index.html.5b971275.js"><link rel="prefetch" href="/assets/index.html.a99d180d.js"><link rel="prefetch" href="/assets/index.html.fb16b232.js"><link rel="prefetch" href="/assets/index.html.be66136f.js"><link rel="prefetch" href="/assets/fafwfw.html.fd3c0e41.js"><link rel="prefetch" href="/assets/index.html.d80680b2.js"><link rel="prefetch" href="/assets/FAQ.html.eb3f601e.js"><link rel="prefetch" href="/assets/【Markdown编辑器快捷键】汇总.html.2e136677.js"><link rel="prefetch" href="/assets/test.html.a87022fc.js"><link rel="prefetch" href="/assets/基本命令使用.html.2a6ce9ce.js"><link rel="prefetch" href="/assets/es和kibana安装配置.html.47ba3606.js"><link rel="prefetch" href="/assets/es的基本使用.html.e463e5b0.js"><link rel="prefetch" href="/assets/html知识点整理.html.6e0a7738.js"><link rel="prefetch" href="/assets/maven问题整理.html.a4249ec9.js"><link rel="prefetch" href="/assets/oauth2的全流程.html.e95e02e4.js"><link rel="prefetch" href="/assets/静态方法调用注入bean.html.f0fc0ba5.js"><link rel="prefetch" href="/assets/sharding-jdbc.html.328e603c.js"><link rel="prefetch" href="/assets/docker搭建环境.html.c7b36694.js"><link rel="prefetch" href="/assets/使用Flyway进行数据库迁移.html.937b11df.js"><link rel="prefetch" href="/assets/Quartz任务调度框架原理.html.d337c701.js"><link rel="prefetch" href="/assets/Spring MVC之RequestContextHolder和LocaleContextHolder的使用详解以及使用误区.html.31e7e226.js"><link rel="prefetch" href="/assets/QueryWrapper常用方法.html.3554d5bc.js"><link rel="prefetch" href="/assets/fastjson的使用——JSON字符串、JSON对象、Java对象的互转.html.c0c5b51a.js"><link rel="prefetch" href="/assets/格式化日期时间.html.61d8aa2a.js"><link rel="prefetch" href="/assets/集合stream相关操作.html.457caa9b.js"><link rel="prefetch" href="/assets/静态方法和泛型.html.ca50e22d.js"><link rel="prefetch" href="/assets/docx和doc互转.html.c175477e.js"><link rel="prefetch" href="/assets/word转html.html.44435fba.js"><link rel="prefetch" href="/assets/word转pdf.html.75c09fe1.js"><link rel="prefetch" href="/assets/如何实现定时任务调度.html.23db6ddf.js"><link rel="prefetch" href="/assets/如何实现接口幂等性.html.889b7b39.js"><link rel="prefetch" href="/assets/生成word.html.205fd4ec.js"><link rel="prefetch" href="/assets/日志配置文件.html.98b85154.js"><link rel="prefetch" href="/assets/mysql.html.497d1554.js"><link rel="prefetch" href="/assets/mysql8.0安装教程(解压版).html.4de0906c.js"><link rel="prefetch" href="/assets/Oracle关于date类型的查询方式及效率浅析.html.dc60bcfc.js"><link rel="prefetch" href="/assets/Oracle相关.html.36709c84.js"><link rel="prefetch" href="/assets/id自增长方案.html.836848d8.js"><link rel="prefetch" href="/assets/oracle时间戳函数及相关操作.html.5d402ba9.js"><link rel="prefetch" href="/assets/sequence.html.6372ea5b.js"><link rel="prefetch" href="/assets/批量插入数据.html.7da692ea.js"><link rel="prefetch" href="/assets/security使用.html.15eb37fb.js"><link rel="prefetch" href="/assets/security原理.html.04da87f2.js"><link rel="prefetch" href="/assets/整合elk.html.c24f75ec.js"><link rel="prefetch" href="/assets/整合minio实现文件上传和下载.html.6374f1c4.js"><link rel="prefetch" href="/assets/kafka使用.html.a24494a9.js"><link rel="prefetch" href="/assets/rabbit安装.html.9314056c.js"><link rel="prefetch" href="/assets/QueryWrapper、LambdaQueryWrapper和LambdaQueryChainWrapper的用法(二).html.0b55b2d0.js"><link rel="prefetch" href="/assets/UpdateWrapper.html.ff0380b7.js"><link rel="prefetch" href="/assets/分页.html.74cdb870.js"><link rel="prefetch" href="/assets/基础用法.html.4c2d0b80.js"><link rel="prefetch" href="/assets/批量插入.html.bc4f857b.js"><link rel="prefetch" href="/assets/404.html.84196ba0.js"><link rel="prefetch" href="/assets/index.html.6cac9ce4.js"><link rel="prefetch" href="/assets/index.html.8c126450.js"><link rel="prefetch" href="/assets/index.html.f756d46f.js"><link rel="prefetch" href="/assets/index.html.50d5d550.js"><link rel="prefetch" href="/assets/index.html.cbd04d01.js"><link rel="prefetch" href="/assets/index.html.e1203c56.js"><link rel="prefetch" href="/assets/index.html.3ebd66ac.js"><link rel="prefetch" href="/assets/index.html.4ad33141.js"><link rel="prefetch" href="/assets/index.html.e6f2602d.js"><link rel="prefetch" href="/assets/index.html.f1899b53.js"><link rel="prefetch" href="/assets/index.html.c36723c0.js"><link rel="prefetch" href="/assets/mermaid.core.5ea15c44.js"><link rel="prefetch" href="/assets/photoswipe.esm.720e8656.js">
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="skip-link sr-only">Skip to content</a><!--]--><div class="theme-container has-toc"><!--[--><!--[--><header class="navbar"><div class="navbar-left"><button class="toggle-sidebar-button" title="Toggle Sidebar"><span class="icon"></span></button><!--[--><!----><!--]--><a href="/" class="brand"><img class="logo" src="/images/logo.jpeg" alt="HONGXU"><!----><span class="site-name hide-in-pad">HONGXU</span></a><!--[--><!----><!--]--></div><div class="navbar-center"><!--[--><!----><!--]--><nav class="nav-links"><div class="nav-item hide-in-mobile"><a href="/" class="nav-link" aria-label="主页"><!---->主页<!----></a></div><div class="nav-item hide-in-mobile"><a href="/guide/fafwfw.html" class="nav-link" aria-label="向导"><!---->向导<!----></a></div></nav><!--[--><!----><!--]--></div><div class="navbar-right"><!--[--><!----><!--]--><!----><div class="nav-item"><a class="repo-link" href="https://github.com/wherywan/learning_research" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="icon github-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="github icon" style="width:1.25rem;height:1.25rem;vertical-align:middle;"><path d="M511.957 21.333C241.024 21.333 21.333 240.981 21.333 512c0 216.832 140.544 400.725 335.574 465.664 24.49 4.395 32.256-10.07 32.256-23.083 0-11.69.256-44.245 0-85.205-136.448 29.61-164.736-64.64-164.736-64.64-22.315-56.704-54.4-71.765-54.4-71.765-44.587-30.464 3.285-29.824 3.285-29.824 49.195 3.413 75.179 50.517 75.179 50.517 43.776 75.008 114.816 53.333 142.762 40.79 4.523-31.66 17.152-53.377 31.19-65.537-108.971-12.458-223.488-54.485-223.488-242.602 0-53.547 19.114-97.323 50.517-131.67-5.035-12.33-21.93-62.293 4.779-129.834 0 0 41.258-13.184 134.912 50.346a469.803 469.803 0 0 1 122.88-16.554c41.642.213 83.626 5.632 122.88 16.554 93.653-63.488 134.784-50.346 134.784-50.346 26.752 67.541 9.898 117.504 4.864 129.834 31.402 34.347 50.474 78.123 50.474 131.67 0 188.586-114.73 230.016-224.042 242.09 17.578 15.232 33.578 44.672 33.578 90.454v135.85c0 13.142 7.936 27.606 32.854 22.87C862.25 912.597 1002.667 728.747 1002.667 512c0-271.019-219.648-490.667-490.71-490.667z"></path></svg></a></div><div class="nav-item hide-in-mobile"><button class="outlook-button" tabindex="-1" ariahidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="icon outlook-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="outlook icon"><path d="M224 800c0 9.6 3.2 44.8 6.4 54.4 6.4 48-48 76.8-48 76.8s80 41.6 147.2 0 134.4-134.4 38.4-195.2c-22.4-12.8-41.6-19.2-57.6-19.2C259.2 716.8 227.2 761.6 224 800zM560 675.2l-32 51.2c-51.2 51.2-83.2 32-83.2 32 25.6 67.2 0 112-12.8 128 25.6 6.4 51.2 9.6 80 9.6 54.4 0 102.4-9.6 150.4-32l0 0c3.2 0 3.2-3.2 3.2-3.2 22.4-16 12.8-35.2 6.4-44.8-9.6-12.8-12.8-25.6-12.8-41.6 0-54.4 60.8-99.2 137.6-99.2 6.4 0 12.8 0 22.4 0 12.8 0 38.4 9.6 48-25.6 0-3.2 0-3.2 3.2-6.4 0-3.2 3.2-6.4 3.2-6.4 6.4-16 6.4-16 6.4-19.2 9.6-35.2 16-73.6 16-115.2 0-105.6-41.6-198.4-108.8-268.8C704 396.8 560 675.2 560 675.2zM224 419.2c0-28.8 22.4-51.2 51.2-51.2 28.8 0 51.2 22.4 51.2 51.2 0 28.8-22.4 51.2-51.2 51.2C246.4 470.4 224 448 224 419.2zM320 284.8c0-22.4 19.2-41.6 41.6-41.6 22.4 0 41.6 19.2 41.6 41.6 0 22.4-19.2 41.6-41.6 41.6C339.2 326.4 320 307.2 320 284.8zM457.6 208c0-12.8 12.8-25.6 25.6-25.6 12.8 0 25.6 12.8 25.6 25.6 0 12.8-12.8 25.6-25.6 25.6C470.4 233.6 457.6 220.8 457.6 208zM128 505.6C128 592 153.6 672 201.6 736c28.8-60.8 112-60.8 124.8-60.8-16-51.2 16-99.2 16-99.2l316.8-422.4c-48-19.2-99.2-32-150.4-32C297.6 118.4 128 291.2 128 505.6zM764.8 86.4c-22.4 19.2-390.4 518.4-390.4 518.4-22.4 28.8-12.8 76.8 22.4 99.2l9.6 6.4c35.2 22.4 80 12.8 99.2-25.6 0 0 6.4-12.8 9.6-19.2 54.4-105.6 275.2-524.8 288-553.6 6.4-19.2-3.2-32-19.2-32C777.6 76.8 771.2 80 764.8 86.4z"></path></svg><div class="outlook-dropdown"><!----></div></button></div><!----><!--[--><!----><!--]--><button class="toggle-navbar-button" aria-label="Toggle Navbar" aria-expanded="false" aria-controls="nav-screen"><span class="button-container"><span class="button-top"></span><span class="button-middle"></span><span class="button-bottom"></span></span></button></div></header><!----><!--]--><!----><div class="toggle-sidebar-wrapper"><span class="arrow left"></span></div><aside class="sidebar"><!--[--><!----><!--]--><ul class="sidebar-links"><li><!--[--><a href="/note/FAQ.html" class="nav-link sidebar-link sidebar-page" aria-label="FAQ"><!---->FAQ<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><!--[--><a href="/note/%E3%80%90Markdown%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E3%80%91%E6%B1%87%E6%80%BB.html" class="nav-link sidebar-link sidebar-page" aria-label="Markdown快捷键"><!---->Markdown快捷键<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">database</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">elasticsearch</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">html</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">JAVA</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">Linux</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">maven</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">Oauth2</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">消息中间件</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">环境搭建</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">分库分表</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable active"><!----><span class="title">Spring</span><span class="arrow down"></span></button><ul class="sidebar-links"><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">Spring Security</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable active"><!----><span class="title">SpringBoot</span><span class="arrow down"></span></button><ul class="sidebar-links"><li><!--[--><a href="/note/spring/springboot/%E6%95%B4%E5%90%88elk.html" class="nav-link sidebar-link sidebar-page" aria-label="整合elk"><!---->整合elk<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><!--[--><a aria-current="page" href="/note/spring/springboot/%E6%95%B4%E5%90%88es.html" class="router-link-active router-link-exact-active nav-link active sidebar-link sidebar-page active" aria-label="整合es"><!---->整合es<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><!--[--><a href="/note/spring/springboot/%E6%95%B4%E5%90%88minio%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD.html" class="nav-link sidebar-link sidebar-page" aria-label="整合minio"><!---->整合minio<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li></ul></section></li><li><!--[--><a href="/note/spring/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E6%B3%A8%E5%85%A5bean.html" class="nav-link sidebar-link sidebar-page" aria-label="静态方法调用注入bean"><!---->静态方法调用注入bean<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li></ul></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">迁移</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">go</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">web</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">中间件</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">前端</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">应用方案</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">数据库</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">服务器环境</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">架构</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">网络通信</span><span class="arrow right"></span></button><!----></section></li></ul><!--[--><!----><!--]--></aside><!--[--><main class="page" id="main-content"><!--[--><!----><nav class="breadcrumb disable"></nav><div class="page-title"><h1><!---->整合es</h1><div class="page-info"><span class="author-info" aria-label="作者🖊" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon author-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="author icon"><path d="M649.6 633.6c86.4-48 147.2-144 147.2-249.6 0-160-128-288-288-288s-288 128-288 288c0 108.8 57.6 201.6 147.2 249.6-121.6 48-214.4 153.6-240 288-3.2 9.6 0 19.2 6.4 25.6 3.2 9.6 12.8 12.8 22.4 12.8h704c9.6 0 19.2-3.2 25.6-12.8 6.4-6.4 9.6-16 6.4-25.6-25.6-134.4-121.6-240-243.2-288z"></path></svg><span><span class="author-item">HONGXU</span></span><span property="author" content="HONGXU"></span></span><!----><span class="date-info" aria-label="写作日期📅" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon calendar-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="calendar icon"><path d="M716.4 110.137c0-18.753-14.72-33.473-33.472-33.473-18.753 0-33.473 14.72-33.473 33.473v33.473h66.993v-33.473zm-334.87 0c0-18.753-14.72-33.473-33.473-33.473s-33.52 14.72-33.52 33.473v33.473h66.993v-33.473zm468.81 33.52H716.4v100.465c0 18.753-14.72 33.473-33.472 33.473a33.145 33.145 0 01-33.473-33.473V143.657H381.53v100.465c0 18.753-14.72 33.473-33.473 33.473a33.145 33.145 0 01-33.473-33.473V143.657H180.6A134.314 134.314 0 0046.66 277.595v535.756A134.314 134.314 0 00180.6 947.289h669.74a134.36 134.36 0 00133.94-133.938V277.595a134.314 134.314 0 00-133.94-133.938zm33.473 267.877H147.126a33.145 33.145 0 01-33.473-33.473c0-18.752 14.72-33.473 33.473-33.473h736.687c18.752 0 33.472 14.72 33.472 33.473a33.145 33.145 0 01-33.472 33.473z"></path></svg><span>2022年12月25日</span><meta property="datePublished" content="2022-12-25T15:22:16.000Z"></span><!----><!----><span class="reading-time-info" aria-label="阅读时间⌛" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon timer-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="timer icon"><path d="M799.387 122.15c4.402-2.978 7.38-7.897 7.38-13.463v-1.165c0-8.933-7.38-16.312-16.312-16.312H256.33c-8.933 0-16.311 7.38-16.311 16.312v1.165c0 5.825 2.977 10.874 7.637 13.592 4.143 194.44 97.22 354.963 220.201 392.763-122.204 37.542-214.893 196.511-220.2 389.397-4.661 5.049-7.638 11.651-7.638 19.03v5.825h566.49v-5.825c0-7.379-2.849-13.981-7.509-18.9-5.049-193.016-97.867-351.985-220.2-389.527 123.24-37.67 216.446-198.453 220.588-392.892zM531.16 450.445v352.632c117.674 1.553 211.787 40.778 211.787 88.676H304.097c0-48.286 95.149-87.382 213.728-88.676V450.445c-93.077-3.107-167.901-81.297-167.901-177.093 0-8.803 6.99-15.793 15.793-15.793 8.803 0 15.794 6.99 15.794 15.793 0 80.261 63.69 145.635 142.01 145.635s142.011-65.374 142.011-145.635c0-8.803 6.99-15.793 15.794-15.793s15.793 6.99 15.793 15.793c0 95.019-73.789 172.82-165.96 177.093z"></path></svg><span>大约 12 分钟</span><meta property="timeRequired" content="PT12M"></span></div><hr></div><!----><!----><div class="theme-hope-content"><h1 id="整合es" tabindex="-1"><a class="header-anchor" href="#整合es" aria-hidden="true">#</a> 整合es</h1><p><a href="https://blog.csdn.net/Alaric_L/article/details/123614683" target="_blank" rel="noopener noreferrer">参考链接-ElasticSearch基础教程<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><h4 id="引入相关依赖" tabindex="-1"><a class="header-anchor" href="#引入相关依赖" aria-hidden="true">#</a> 引入相关依赖</h4><div class="language-xml ext-xml line-numbers-mode"><pre class="language-xml"><code><span class="token comment">&lt;!--引入es的坐标--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.elasticsearch.client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>elasticsearch-rest-high-level-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>7.4.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.elasticsearch.client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>elasticsearch-rest-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>7.4.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.elasticsearch<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>elasticsearch<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>7.4.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="javaapi索引操作" tabindex="-1"><a class="header-anchor" href="#javaapi索引操作" aria-hidden="true">#</a> JavaAPI索引操作</h4><h5 id="添加索引" tabindex="-1"><a class="header-anchor" href="#添加索引" aria-hidden="true">#</a> 添加索引</h5><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>/**
+    * 添加索引
+    * @throws IOException
+    */
+   @Test
+   public void addIndex() throws IOException {
+      //1.使用client获取操作索引对象
+       IndicesClient indices = client.indices();
+       //2.具体操作获取返回值
+       //2.1 设置索引名称
+       CreateIndexRequest createIndexRequest=new CreateIndexRequest(&quot;person&quot;);
+
+       CreateIndexResponse createIndexResponse = indices.create(createIndexRequest, RequestOptions.DEFAULT);
+       //3.根据返回值判断结果
+       System.out.println(createIndexResponse.isAcknowledged());
+   }
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="添加索引-并添加映射" tabindex="-1"><a class="header-anchor" href="#添加索引-并添加映射" aria-hidden="true">#</a> 添加索引，并添加映射</h5><pre><code>    @Test
+    public void addIndexAndMapping() throws IOException {
+    //1.使用client获取操作索引对象
+    IndicesClient indices = client.indices();
+    //2.具体操作获取返回值
+    //2.具体操作，获取返回值
+    CreateIndexRequest createIndexRequest = new CreateIndexRequest(&quot;person&quot;);
+    //2.1 设置mappings
+    String mapping = &quot;{\n&quot; +
+    &quot;      \&quot;properties\&quot; : {\n&quot; +
+    &quot;        \&quot;address\&quot; : {\n&quot; +
+    &quot;          \&quot;type\&quot; : \&quot;text\&quot;,\n&quot; +
+    &quot;          \&quot;analyzer\&quot; : \&quot;ik_max_word\&quot;\n&quot; +
+    &quot;        },\n&quot; +
+    &quot;        \&quot;age\&quot; : {\n&quot; +
+    &quot;          \&quot;type\&quot; : \&quot;long\&quot;\n&quot; +
+    &quot;        },\n&quot; +
+    &quot;        \&quot;name\&quot; : {\n&quot; +
+    &quot;          \&quot;type\&quot; : \&quot;keyword\&quot;\n&quot; +
+    &quot;        }\n&quot; +
+    &quot;      }\n&quot; +
+    &quot;    }&quot;;
+    createIndexRequest.mapping(mapping,XContentType.JSON);
+
+    CreateIndexResponse createIndexResponse = indices.create(createIndexRequest, RequestOptions.DEFAULT);
+    //3.根据返回值判断结果
+    System.out.println(createIndexResponse.isAcknowledged());
+}
+</code></pre><h5 id="查询、删除、判断索引" tabindex="-1"><a class="header-anchor" href="#查询、删除、判断索引" aria-hidden="true">#</a> 查询、删除、判断索引</h5><p>查询索引</p><pre><code>/**
+ * 查询索引
+ */
+@Test
+public void queryIndex() throws IOException {
+    IndicesClient indices = client.indices();
+
+    GetIndexRequest getRequest=new GetIndexRequest(&quot;person&quot;);
+    GetIndexResponse response = indices.get(getRequest, RequestOptions.DEFAULT);
+    Map&lt;String, MappingMetaData&gt; mappings = response.getMappings();
+    //iter 提示foreach
+    for (String key : mappings.keySet()) {
+        System.out.println(key+&quot;===&quot;+mappings.get(key).getSourceAsMap());
+    }
+}
+</code></pre><p>删除索引</p><pre><code>/**
+ * 删除索引
+ */
+@Test
+public void deleteIndex() throws IOException {
+     IndicesClient indices = client.indices();
+    DeleteIndexRequest deleteRequest=new DeleteIndexRequest(&quot;person&quot;);
+    AcknowledgedResponse delete = indices.delete(deleteRequest, RequestOptions.DEFAULT);
+    System.out.println(delete.isAcknowledged());
+
+}
+</code></pre><p>索引是否存在</p><pre><code>/**
+ * 索引是否存在
+ */
+@Test
+public void existIndex() throws IOException {
+    IndicesClient indices = client.indices();
+
+    GetIndexRequest getIndexRequest=new GetIndexRequest(&quot;person&quot;);
+    boolean exists = indices.exists(getIndexRequest, RequestOptions.DEFAULT);
+    System.out.println(exists);
+
+}
+</code></pre><h4 id="javaapi-文档增删改查" tabindex="-1"><a class="header-anchor" href="#javaapi-文档增删改查" aria-hidden="true">#</a> JavaApi-文档增删改查</h4><h5 id="添加文档" tabindex="-1"><a class="header-anchor" href="#添加文档" aria-hidden="true">#</a> 添加文档</h5><h6 id="_1-使用map作为数据" tabindex="-1"><a class="header-anchor" href="#_1-使用map作为数据" aria-hidden="true">#</a> 1.使用map作为数据</h6><pre><code>@Test
+public void addDoc1() throws IOException {
+Map&lt;String, Object&gt; map=new HashMap&lt;&gt;();
+map.put(&quot;name&quot;,&quot;张三&quot;);
+map.put(&quot;age&quot;,&quot;18&quot;);
+map.put(&quot;address&quot;,&quot;北京二环&quot;);
+IndexRequest request=new IndexRequest(&quot;person&quot;).id(&quot;1&quot;).source(map);
+IndexResponse response = client.index(request, RequestOptions.DEFAULT);
+System.out.println(response.getId());
+}
+</code></pre><h6 id="_2-添加文档-使用对象作为数据" tabindex="-1"><a class="header-anchor" href="#_2-添加文档-使用对象作为数据" aria-hidden="true">#</a> 2.添加文档,使用对象作为数据</h6><pre><code>@Test
+public void addDoc2() throws IOException {
+Person person=new Person();
+person.setId(&quot;2&quot;);
+person.setName(&quot;李四&quot;);
+person.setAge(20);
+person.setAddress(&quot;北京三环&quot;);
+String data = JSON.toJSONString(person);
+IndexRequest request=new IndexRequest(&quot;person&quot;).id(person.getId()).source(data,XContentType.JSON);
+IndexResponse response = client.index(request, RequestOptions.DEFAULT);
+System.out.println(response.getId());
+}
+</code></pre><h5 id="修改、查询" tabindex="-1"><a class="header-anchor" href="#修改、查询" aria-hidden="true">#</a> 修改、查询</h5><h6 id="修改文档-添加文档时-如果id存在则修改-id不存在则添加" tabindex="-1"><a class="header-anchor" href="#修改文档-添加文档时-如果id存在则修改-id不存在则添加" aria-hidden="true">#</a> 修改文档：添加文档时，如果id存在则修改，id不存在则添加</h6><pre><code>@Test
+public void UpdateDoc() throws IOException {
+    Person person=new Person();
+    person.setId(&quot;2&quot;);
+    person.setName(&quot;李四&quot;);
+    person.setAge(20);
+    person.setAddress(&quot;北京三环车王&quot;);
+
+    String data = JSON.toJSONString(person);
+
+    IndexRequest request=new IndexRequest(&quot;person&quot;).id(person.getId()).source(data,XContentType.JSON);
+    IndexResponse response = client.index(request, RequestOptions.DEFAULT);
+    System.out.println(response.getId());
+}
+</code></pre><h6 id="根据id查询文档" tabindex="-1"><a class="header-anchor" href="#根据id查询文档" aria-hidden="true">#</a> 根据id查询文档</h6><pre><code>@Test
+public void getDoc() throws IOException {
+
+    //设置查询的索引、文档
+    GetRequest indexRequest=new GetRequest(&quot;person&quot;,&quot;2&quot;);
+
+    GetResponse response = client.get(indexRequest, RequestOptions.DEFAULT);
+    System.out.println(response.getSourceAsString());
+}
+</code></pre><h5 id="删除文档" tabindex="-1"><a class="header-anchor" href="#删除文档" aria-hidden="true">#</a> 删除文档</h5><h6 id="根据id删除文档" tabindex="-1"><a class="header-anchor" href="#根据id删除文档" aria-hidden="true">#</a> 根据id删除文档</h6><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>/**
+* 根据id删除文档
+*/
+@Test
+public void delDoc() throws IOException {
+
+        //设置要删除的索引、文档
+        DeleteRequest deleteRequest=new DeleteRequest(&quot;person&quot;,&quot;1&quot;);
+
+        DeleteResponse response = client.delete(deleteRequest, RequestOptions.DEFAULT);
+        System.out.println(response.getId());
+    }
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h6 id="删除满足给定条件的文档" tabindex="-1"><a class="header-anchor" href="#删除满足给定条件的文档" aria-hidden="true">#</a> 删除满足给定条件的文档</h6><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>/**
+ * 删除满足给定条件的文档
+ */
+@Test
+void test09() throws IOException {
+    //设置要删除的索引
+    DeleteByQueryRequest deleteByQueryRequest = new DeleteByQueryRequest(&quot;person&quot;);
+    //设置条件，可设置多个
+    deleteByQueryRequest.setQuery(new TermQueryBuilder(&quot;age&quot;, 11));
+    deleteByQueryRequest.setQuery(new TermQueryBuilder(&quot;name&quot;, 张三));
+
+    // 设置并行
+    deleteByQueryRequest.setSlices(2);
+    // 设置超时
+    deleteByQueryRequest.setTimeout(TimeValue.timeValueMinutes(2));
+    BulkByScrollResponse response = client.deleteByQuery(deleteByQueryRequest, RequestOptions.DEFAULT);
+    System.out.println(response.getStatus().getDeleted());
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="bulk批量操作" tabindex="-1"><a class="header-anchor" href="#bulk批量操作" aria-hidden="true">#</a> bulk批量操作</h4><h5 id="bulk批量操作-脚本" tabindex="-1"><a class="header-anchor" href="#bulk批量操作-脚本" aria-hidden="true">#</a> bulk批量操作-脚本</h5><p>脚本：</p><p>测试用的5号文档</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>POST /person1/_doc/5
+{
+  &quot;name&quot;:&quot;张三5号&quot;,
+  &quot;age&quot;:18,
+  &quot;address&quot;:&quot;北京海淀区&quot;
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>批量操作文本</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>#批量操作
+#1.删除5号
+#2.新增8号
+#3.更新2号 name为2号
+POST _bulk
+{&quot;delete&quot;:{&quot;_index&quot;:&quot;person1&quot;,&quot;_id&quot;:&quot;5&quot;}}
+{&quot;create&quot;:{&quot;_index&quot;:&quot;person1&quot;,&quot;_id&quot;:&quot;8&quot;}}
+{&quot;name&quot;:&quot;八号&quot;,&quot;age&quot;:18,&quot;address&quot;:&quot;北京&quot;}
+{&quot;update&quot;:{&quot;_index&quot;:&quot;person1&quot;,&quot;_id&quot;:&quot;2&quot;}}
+{&quot;doc&quot;:{&quot;name&quot;:&quot;2号&quot;}}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>结果</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
+  &quot;took&quot; : 51,
+  &quot;errors&quot; : true,
+  &quot;items&quot; : [
+    {
+      &quot;delete&quot; : {
+        &quot;_index&quot; : &quot;person1&quot;,
+        &quot;_type&quot; : &quot;_doc&quot;,
+        &quot;_id&quot; : &quot;5&quot;,
+        &quot;_version&quot; : 2,
+        &quot;result&quot; : &quot;deleted&quot;,
+        &quot;_shards&quot; : {
+          &quot;total&quot; : 2,
+          &quot;successful&quot; : 1,
+          &quot;failed&quot; : 0
+        },
+        &quot;_seq_no&quot; : 6,
+        &quot;_primary_term&quot; : 2,
+        &quot;status&quot; : 200
+      }
+    },
+    {
+      &quot;create&quot; : {
+        &quot;_index&quot; : &quot;person1&quot;,
+        &quot;_type&quot; : &quot;_doc&quot;,
+        &quot;_id&quot; : &quot;8&quot;,
+        &quot;_version&quot; : 1,
+        &quot;result&quot; : &quot;created&quot;,
+        &quot;_shards&quot; : {
+          &quot;total&quot; : 2,
+          &quot;successful&quot; : 1,
+          &quot;failed&quot; : 0
+        },
+        &quot;_seq_no&quot; : 7,
+        &quot;_primary_term&quot; : 2,
+        &quot;status&quot; : 201
+      }
+    },
+    {
+      &quot;update&quot; : {
+        &quot;_index&quot; : &quot;person1&quot;,
+        &quot;_type&quot; : &quot;_doc&quot;,
+        &quot;_id&quot; : &quot;2&quot;,
+        &quot;_version&quot; : 2,
+        &quot;result&quot; : &quot;updated&quot;,
+        &quot;_shards&quot; : {
+          &quot;total&quot; : 2,
+          &quot;successful&quot; : 1,
+          &quot;failed&quot; : 0
+        },
+        &quot;_seq_no&quot; : 10,
+        &quot;_primary_term&quot; : 2,
+        &quot;status&quot; : 200
+      }
+    }
+  ]
+}
+
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="bulk批量操作-javaapi" tabindex="-1"><a class="header-anchor" href="#bulk批量操作-javaapi" aria-hidden="true">#</a> bulk批量操作-JavaAPI</h5><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code> /**
+     *  Bulk 批量操作
+     */
+    @Test
+    public void test2() throws IOException {
+
+        //创建bulkrequest对象，整合所有操作
+        BulkRequest bulkRequest =new BulkRequest();
+
+           /*
+        # 1. 删除5号记录
+        # 2. 添加6号记录
+        # 3. 修改3号记录 名称为 “三号”
+         */
+        //添加对应操作
+        //1. 删除5号记录
+        DeleteRequest deleteRequest=new DeleteRequest(&quot;person1&quot;,&quot;5&quot;);
+        bulkRequest.add(deleteRequest);
+
+        //2. 添加6号记录
+        Map&lt;String, Object&gt; map=new HashMap&lt;&gt;();
+        map.put(&quot;name&quot;,&quot;六号&quot;);
+        IndexRequest indexRequest=new IndexRequest(&quot;person1&quot;).id(&quot;6&quot;).source(map);
+        bulkRequest.add(indexRequest);
+        //3. 修改3号记录 名称为 “三号”
+        Map&lt;String, Object&gt; mapUpdate=new HashMap&lt;&gt;();
+        mapUpdate.put(&quot;name&quot;,&quot;三号&quot;);
+        UpdateRequest updateRequest=new UpdateRequest(&quot;person1&quot;,&quot;3&quot;).doc(mapUpdate);
+
+        bulkRequest.add(updateRequest);
+        //执行批量操作
+
+
+        BulkResponse response = client.bulk(bulkRequest, RequestOptions.DEFAULT);
+        System.out.println(response.status());
+
+    }
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="批量导入数据-代码实现" tabindex="-1"><a class="header-anchor" href="#批量导入数据-代码实现" aria-hidden="true">#</a> 批量导入数据-代码实现</h5><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code> /**
+     * 从Mysql 批量导入 elasticSearch
+     */
+    @Test
+    public void test3() throws IOException {
+        //1.查询所有数据，mysql
+        List&lt;Goods&gt; goodsList = goodsMapper.findAll();
+
+        //2.bulk导入
+        BulkRequest bulkRequest=new BulkRequest();
+
+        //2.1 循环goodsList，创建IndexRequest添加数据
+        for (Goods goods : goodsList) {
+
+            //2.2 设置spec规格信息 Map的数据   specStr:{}
+            String specStr = goods.getSpecStr();
+
+            //将json格式字符串转为Map集合
+            Map map = JSON.parseObject(specStr, Map.class);
+
+            //设置spec map
+            goods.setSpec(map);
+
+            //将goods对象转换为json字符串
+            String data = JSON.toJSONString(goods);
+
+            IndexRequest indexRequest=new IndexRequest(&quot;goods&quot;).source(data,XContentType.JSON);
+            bulkRequest.add(indexRequest);
+
+        }
+
+        BulkResponse response = client.bulk(bulkRequest, RequestOptions.DEFAULT);
+        System.out.println(response.status());
+
+    }
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="elasticsearch查询" tabindex="-1"><a class="header-anchor" href="#elasticsearch查询" aria-hidden="true">#</a> ElasticSearch查询</h4><h5 id="_1、matchall" tabindex="-1"><a class="header-anchor" href="#_1、matchall" aria-hidden="true">#</a> 1、matchAll</h5><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>	/**
+     * 查询所有
+     *  1. matchAll
+     *  2. 将查询结果封装为Goods对象，装载到List中
+     *  3. 分页。默认显示10条
+     */
+    @Test
+    public void matchAll() throws IOException {
+
+        //2. 构建查询请求对象，指定查询的索引名称
+        SearchRequest searchRequest=new SearchRequest(&quot;goods&quot;);
+
+        //4. 创建查询条件构建器SearchSourceBuilder
+        SearchSourceBuilder sourceBuilder=new SearchSourceBuilder();
+
+        //6. 查询条件
+        QueryBuilder queryBuilder= QueryBuilders.matchAllQuery();
+        //5. 指定查询条件
+        sourceBuilder.query(queryBuilder);
+
+        //3. 添加查询条件构建器 SearchSourceBuilder
+        searchRequest.source(sourceBuilder);
+        // 8 . 添加分页信息  不设置 默认10条
+//        sourceBuilder.from(0);
+//        sourceBuilder.size(100);
+        //1. 查询,获取查询结果
+
+        SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
+
+        //7. 获取命中对象 SearchHits
+        SearchHits hits = searchResponse.getHits();
+
+        //7.1 获取总记录数
+      Long total= hits.getTotalHits().value;
+        System.out.println(&quot;总数：&quot;+total);
+        //7.2 获取Hits数据  数组
+        SearchHit[] hits1 = hits.getHits();
+            //获取json字符串格式的数据
+        List&lt;Goods&gt; goodsList = new ArrayList&lt;&gt;();
+        for (SearchHit searchHit : hits1) {
+            String sourceAsString = searchHit.getSourceAsString();
+            //转为java对象
+            Goods goods = JSON.parseObject(sourceAsString, Goods.class);
+            goodsList.add(goods);
+        }
+
+        for (Goods goods : goodsList) {
+            System.out.println(goods);
+        }
+
+    }
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="/assets/7c6b48cd.4731efdb.png" alt=""></p><h5 id="_2、-termquery-、termsquery" tabindex="-1"><a class="header-anchor" href="#_2、-termquery-、termsquery" aria-hidden="true">#</a> 2、 termQuery 、termsQuery</h5><p>term查询和字段类型有关系，首先回顾一下ElasticSearch两个数据类型</p><p>ElasticSearch两个数据类型</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>text：会分词，不支持聚合
+
+keyword：不会分词，将全部内容作为一个词条，支持聚合
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>term查询：不会对查询条件进行分词。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;title&quot;: {
+        &quot;value&quot;: &quot;华为&quot;
+      }
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>term查询，查询text类型字段时，只有其中的单词相匹配都会查到，text字段会对数据进行分词</p><p>例如：查询title 为“华为”的，title type 为text <img src="data:image/png;base64,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" alt=""><img src="/assets/87898aa9.cde8e0be.png" alt=""> 查询categoryName 字段时，categoryName字段为keyword ,keyword：不会分词，将全部内容作为一个词条, 即完全匹配，才能查询出结果 <img src="data:image/png;base64,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" alt=""></p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;categoryName&quot;: {
+        &quot;value&quot;: &quot;华为手机&quot;
+      }
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><img src="/assets/0c10ee91.2b41ed2d.png" alt=""> termQuery 代码</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>
+// 将matchAll代码中 设置查询条件修改为
+// termQuery 完全匹配
+QueryBuilder queryBuilder = QueryBuilders.termQuery(&quot;title&quot;, &quot;华为&quot;);
+// termsQuery 一次匹配多个值
+QueryBuilder queryBuilder = QueryBuilders.termQuery(&quot;title&quot;, &quot;华为&quot;, &quot;小米&quot;, &quot;三星&quot;);
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_3、matchquery、multimatchquery" tabindex="-1"><a class="header-anchor" href="#_3、matchquery、multimatchquery" aria-hidden="true">#</a> 3、matchQuery、multiMatchQuery</h5><p>match查询：</p><p>•会对查询条件进行分词。</p><p>•然后将分词后的查询条件和词条进行等值匹配</p><p>•默认取并集（OR）</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># match查询
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;title&quot;: &quot;华为手机&quot;
+    }
+  },
+  &quot;size&quot;: 500
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>matchQuery 代码</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>// matchQuery 单个匹配
+MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery(&quot;title&quot;, &quot;华为&quot;);
+// multiMatchQuery 匹配多个字段
+MatchQueryBuilder queryBuilder = QueryBuilders. multiMatchQuery(&quot;text&quot;, &quot;field1&quot;, &quot;field2&quot;..);  
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>总结：</p><ul><li><p>term query会去倒排索引中寻找确切的term，它并不知道分词器的存在。这种查询适合keyword 、numeric、date</p></li><li><p>match query知道分词器的存在。并且理解是如何被分词的</p></li></ul><h5 id="_4、模糊查询" tabindex="-1"><a class="header-anchor" href="#_4、模糊查询" aria-hidden="true">#</a> 4、模糊查询</h5><p>a、wildcard查询</p><p>wildcard查询：会对查询条件进行分词。还可以使用通配符 ?（任意单个字符） 和 * （0个或多个字符）</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>&quot;*华*&quot;  包含华字的
+&quot;华*&quot;   华字后边多个字符
+&quot;华?&quot;  华字后边多个字符
+&quot;*华&quot;或&quot;?华&quot; 会引发全表（全索引）扫描 注意效率问题
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># wildcard 查询。查询条件分词，模糊查询
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;wildcard&quot;: {
+      &quot;title&quot;: {
+        &quot;value&quot;: &quot;华*&quot;
+      }
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b、正则查询</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>\W：匹配包括下划线的任何单词字符，等价于 [A-Z a-z 0-9_]   开头的反斜杠是转义符
+
++号多次出现
+
+(.)*为任意字符
+正则查询取决于正则表达式的效率
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;regexp&quot;: {
+      &quot;title&quot;: &quot;\\w+(.)*&quot;
+    }
+  }
+}
+
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>c、前缀查询</p><p>对keyword类型支持比较好</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># 前缀查询 对keyword类型支持比较好
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;prefix&quot;: {
+      &quot;brandName&quot;: {
+        &quot;value&quot;: &quot;三&quot;
+      }
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>模糊查询代码</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>//模糊查询
+WildcardQueryBuilder query = QueryBuilders.wildcardQuery(&quot;title&quot;, &quot;华*&quot;);//华后多个字符
+//正则查询
+RegexpQueryBuilder query = QueryBuilders.regexpQuery(&quot;title&quot;, &quot;\\w+(.)*&quot;);
+//前缀查询
+PrefixQueryBuilder query = QueryBuilders.prefixQuery(&quot;brandName&quot;, &quot;三&quot;);
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_5、范围-排序查询" tabindex="-1"><a class="header-anchor" href="#_5、范围-排序查询" aria-hidden="true">#</a> 5、范围&amp;排序查询</h5><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># 范围查询
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;range&quot;: {
+      &quot;price&quot;: {
+        &quot;gte&quot;: 2000,
+        &quot;lte&quot;: 3000
+      }
+    }
+  },
+  &quot;sort&quot;: [
+    {
+      &quot;price&quot;: {
+        &quot;order&quot;: &quot;desc&quot;
+      }
+    }
+  ]
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>范围查询API</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code> //范围查询 以price 价格为条件
+RangeQueryBuilder query = QueryBuilders.rangeQuery(&quot;price&quot;);
+
+//指定下限
+query.gte(2000);
+//指定上限
+query.lte(3000);
+
+sourceBuilder.query(query);
+
+//排序  价格 降序排列
+sourceBuilder.sort(&quot;price&quot;,SortOrder.DESC);
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_6、querystring多条件查询" tabindex="-1"><a class="header-anchor" href="#_6、querystring多条件查询" aria-hidden="true">#</a> 6、queryString多条件查询</h5><p>queryString 多条件查询</p><p>•会对查询条件进行分词。</p><p>•然后将分词后的查询条件和词条进行等值匹配</p><p>•默认取并集（OR）</p><p>•可以指定多个查询字段</p><p>query_string：识别query中的连接符（or 、and）</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># queryString
+
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;query_string&quot;: {
+      &quot;fields&quot;: [&quot;title&quot;,&quot;categoryName&quot;,&quot;brandName&quot;], 
+      &quot;query&quot;: &quot;华为 AND 手机&quot;
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>simple_query_string：不识别query中的连接符（or 、and），查询时会将 “华为”、“and”、“手机”分别进行查询</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;simple_query_string&quot;: {
+      &quot;fields&quot;: [&quot;title&quot;,&quot;categoryName&quot;,&quot;brandName&quot;], 
+      &quot;query&quot;: &quot;华为 AND 手机&quot;
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>query_string：有default_operator连接符的脚本</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;query_string&quot;: {
+      &quot;fields&quot;: [&quot;title&quot;,&quot;brandName&quot;,&quot;categoryName&quot;],
+      &quot;query&quot;: &quot;华为手机 &quot;
+      , &quot;default_operator&quot;: &quot;AND&quot;
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>javaApi</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>QueryStringQueryBuilder query = QueryBuilders.queryStringQuery(&quot;华为手机&quot;).field(&quot;title&quot;).field(&quot;categoryName&quot;)
+.field(&quot;brandName&quot;).defaultOperator(Operator.AND);
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>simple_query_string：有default_operator连接符的脚本</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;simple_query_string&quot;: {
+      &quot;fields&quot;: [&quot;title&quot;,&quot;brandName&quot;,&quot;categoryName&quot;],
+      &quot;query&quot;: &quot;华为手机 &quot;
+      , &quot;default_operator&quot;: &quot;OR&quot;
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_7、布尔查询" tabindex="-1"><a class="header-anchor" href="#_7、布尔查询" aria-hidden="true">#</a> 7、布尔查询</h5><p>boolQuery：对多个查询条件连接。连接方式：</p><p>•must（and）：条件必须成立</p><p>•must_not（not）：条件必须不成立</p><p>•should（or）：条件可以成立</p><p>•filter：条件必须成立，性能比must高。不会计算得分</p><p>**得分:**即条件匹配度,匹配度越高，得分越高</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># boolquery
+#must和filter配合使用时，max_score（得分）是显示的
+#must 默认数组形式
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;must&quot;: [
+        {
+          &quot;term&quot;: {
+            &quot;brandName&quot;: {
+              &quot;value&quot;: &quot;华为&quot;
+            }
+          }
+        }
+      ],
+      &quot;filter&quot;:[ 
+        {
+        &quot;term&quot;: {
+          &quot;title&quot;: &quot;手机&quot;
+        }
+       },
+       {
+         &quot;range&quot;:{
+          &quot;price&quot;: {
+            &quot;gte&quot;: 2000,
+            &quot;lte&quot;: 3000
+         }
+         }
+       }
+      
+      ]
+    }
+  }
+}
+#filter 单独使用   filter可以是单个条件，也可多个条件（数组形式）
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;filter&quot;: [
+        {
+          &quot;term&quot;: {
+            &quot;brandName&quot;: {
+              &quot;value&quot;: &quot;华为&quot;
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>布尔查询-JavaAPI</p><p>布尔查询：boolQuery</p><p>查询品牌名称为:华为 查询标题包含：手机 查询价格在：2000-3000 must 、filter为连接方式</p><p>term、match为不同的查询方式</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>//1.构建boolQuery
+BoolQueryBuilder boolQuery = QueryBuilders.boolQuery();
+//2.构建各个查询条件
+//2.1 查询品牌名称为:华为
+TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery(&quot;brandName&quot;, &quot;华为&quot;);
+boolQuery.must(termQueryBuilder);
+//2.2. 查询标题包含：手机
+MatchQueryBuilder matchQuery = QueryBuilders.matchQuery(&quot;title&quot;, &quot;手机&quot;);
+boolQuery.filter(matchQuery);
+
+//2.3 查询价格在：2000-3000
+RangeQueryBuilder rangeQuery = QueryBuilders.rangeQuery(&quot;price&quot;);
+rangeQuery.gte(2000);
+rangeQuery.lte(3000);
+boolQuery.filter(rangeQuery);
+
+sourceBuilder.query(boolQuery);
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_8、聚合查询" tabindex="-1"><a class="header-anchor" href="#_8、聚合查询" aria-hidden="true">#</a> 8、聚合查询</h5><p>•指标聚合：相当于MySQL的聚合函数。max、min、avg、sum等</p><p>•桶聚合：相当于MySQL的 group by 操作。不要对text类型的数据进行分组，会失败。</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># 聚合查询
+
+# 指标聚合 聚合函数
+
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;title&quot;: &quot;手机&quot;
+    }
+  },
+  &quot;aggs&quot;: {
+    &quot;max_price&quot;: {
+      &quot;max&quot;: {
+        &quot;field&quot;: &quot;price&quot;
+      }
+    }
+  }
+}
+
+# 桶聚合  分组
+
+GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;title&quot;: &quot;手机&quot;
+    }
+  },
+  &quot;aggs&quot;: {
+    &quot;goods_brands&quot;: {
+      &quot;terms&quot;: {
+        &quot;field&quot;: &quot;brandName&quot;,
+        &quot;size&quot;: 100
+      }
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>聚合查询-JavaAPI 聚合查询：桶聚合，分组查询</p><ol><li>查询title包含手机的数据</li><li>查询品牌列表</li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>/**
+     * 聚合查询：桶聚合，分组查询
+     * 1. 查询title包含手机的数据
+     * 2. 查询品牌列表
+     */
+@Test
+public void testAggQuery() throws IOException {
+
+    SearchRequest searchRequest=new SearchRequest(&quot;goods&quot;);
+
+    SearchSourceBuilder sourceBuilder=new SearchSourceBuilder();
+    //1. 查询title包含手机的数据
+
+    MatchQueryBuilder queryBuilder = QueryBuilders.matchQuery(&quot;title&quot;, &quot;手机&quot;);
+
+    sourceBuilder.query(queryBuilder);
+    //2. 查询品牌列表  只展示前100条
+    AggregationBuilder aggregation=AggregationBuilders.terms(&quot;goods_brands&quot;).field(&quot;brandName&quot;).size(100);
+    sourceBuilder.aggregation(aggregation);
+
+
+    searchRequest.source(sourceBuilder);
+
+    SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
+
+    //7. 获取命中对象 SearchHits
+    SearchHits hits = searchResponse.getHits();
+
+    //7.1 获取总记录数
+    Long total= hits.getTotalHits().value;
+    System.out.println(&quot;总数：&quot;+total);
+
+    // aggregations 对象
+    Aggregations aggregations = searchResponse.getAggregations();
+    //将aggregations 转化为map
+    Map&lt;String, Aggregation&gt; aggregationMap = aggregations.asMap();
+
+
+    //通过key获取goods_brands 对象 使用Aggregation的子类接收  buckets属性在Terms接口中体现
+
+    //        Aggregation goods_brands1 = aggregationMap.get(&quot;goods_brands&quot;);
+    Terms goods_brands =(Terms) aggregationMap.get(&quot;goods_brands&quot;);
+
+    //获取buckets 数组集合
+    List&lt;? extends Terms.Bucket&gt; buckets = goods_brands.getBuckets();
+
+    Map&lt;String,Object&gt;map=new HashMap&lt;&gt;();
+    //遍历buckets   key 属性名，doc_count 统计聚合数
+    for (Terms.Bucket bucket : buckets) {
+
+        System.out.println(bucket.getKey());
+        map.put(bucket.getKeyAsString(),bucket.getDocCount());
+    }
+
+    System.out.println(map);
+
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="_9、高亮查询" tabindex="-1"><a class="header-anchor" href="#_9、高亮查询" aria-hidden="true">#</a> 9、高亮查询</h5><p>高亮三要素：</p><p>•高亮字段</p><p>•前缀</p><p>•后缀</p><p>默认前后缀 ：em</p><div class="language-html ext-html line-numbers-mode"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">&gt;</span></span>手机<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>em</span><span class="token punctuation">&gt;</span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET goods/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;title&quot;: &quot;电视&quot;
+    }
+  },
+  &quot;highlight&quot;: {
+    &quot;fields&quot;: {
+      &quot;title&quot;: {
+        &quot;pre_tags&quot;: &quot;&lt;font color=&#39;red&#39;&gt;&quot;,
+        &quot;post_tags&quot;: &quot;&lt;/font&gt;&quot;
+      }
+    }
+  }
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>高亮查询 代码</p><p>实施步骤：</p><ol><li>设置高亮：高亮字段、前缀、 后缀</li><li>将高亮了的字段数据，替换原有数据</li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>/**
+     *
+     * 高亮查询：
+     *  1. 设置高亮：高亮字段、前缀、 后缀
+     *  2. 将高亮了的字段数据，替换原有数据
+     */
+@Test
+public void testHighLightQuery() throws IOException {
+
+
+    SearchRequest searchRequest = new SearchRequest(&quot;goods&quot;);
+
+    SearchSourceBuilder sourceBulider = new SearchSourceBuilder();
+
+    // 1. 查询title包含手机的数据
+    MatchQueryBuilder query = QueryBuilders.matchQuery(&quot;title&quot;, &quot;手机&quot;);
+
+    sourceBulider.query(query);
+
+    //设置高亮
+    HighlightBuilder highlighter = new HighlightBuilder();
+    //设置三要素
+    highlighter.field(&quot;title&quot;);
+    //设置前后缀标签
+    highlighter.preTags(&quot;&lt;font color=&#39;red&#39;&gt;&quot;);
+    highlighter.postTags(&quot;&lt;/font&gt;&quot;);
+
+    //加载已经设置好的高亮配置
+    sourceBulider.highlighter(highlighter);
+
+    searchRequest.source(sourceBulider);
+
+    SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
+
+
+    SearchHits searchHits = searchResponse.getHits();
+    //获取记录数
+    long value = searchHits.getTotalHits().value;
+    System.out.println(&quot;总记录数：&quot;+value);
+
+    List&lt;Goods&gt; goodsList = new ArrayList&lt;&gt;();
+    SearchHit[] hits = searchHits.getHits();
+    for (SearchHit hit : hits) {
+        String sourceAsString = hit.getSourceAsString();
+
+        //转为java
+        Goods goods = JSON.parseObject(sourceAsString, Goods.class);
+
+        // 获取高亮结果，替换goods中的title
+        Map&lt;String, HighlightField&gt; highlightFields = hit.getHighlightFields();
+        HighlightField HighlightField = highlightFields.get(&quot;title&quot;);
+        Text[] fragments = HighlightField.fragments();
+        //highlight title替换 替换goods中的title
+        goods.setTitle(fragments[0].toString());
+        goodsList.add(goods);
+    }
+
+    for (Goods goods : goodsList) {
+        System.out.println(goods);
+    }
+
+
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="重建索引-索引别名" tabindex="-1"><a class="header-anchor" href="#重建索引-索引别名" aria-hidden="true">#</a> 重建索引&amp;索引别名</h4><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>#查询别名 默认别名无法查看，默认别名同索引名
+GET goods/_alias/
+#结果
+{
+  &quot;goods&quot; : {
+    &quot;aliases&quot; : { }
+  }
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>1.新建student_index_v1索引</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># -------重建索引-----------
+
+# 新建student_index_v1。索引名称必须全部小写
+
+PUT student_index_v1
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;birthday&quot;:{
+        &quot;type&quot;: &quot;date&quot;
+      }
+    }
+  }
+}
+#查看 student_index_v1 结构
+GET student_index_v1
+#添加数据
+PUT student_index_v1/_doc/1
+{
+  &quot;birthday&quot;:&quot;1999-11-11&quot;
+}
+#查看数据
+GET student_index_v1/_search
+
+#添加数据
+PUT student_index_v1/_doc/1
+{
+  &quot;birthday&quot;:&quot;1999年11月11日&quot;
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2.重建索引:将student_index_v1 数据拷贝到 student_index_v2</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># 业务变更了，需要改变birthday字段的类型为text
+
+# 1. 创建新的索引 student_index_v2
+# 2. 将student_index_v1 数据拷贝到 student_index_v2
+
+# 创建新的索引 student_index_v2
+PUT student_index_v2
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;birthday&quot;:{
+        &quot;type&quot;: &quot;text&quot;
+      }
+    }
+  }
+}
+# 将student_index_v1 数据拷贝到 student_index_v2
+# _reindex 拷贝数据
+POST _reindex
+{
+  &quot;source&quot;: {
+    &quot;index&quot;: &quot;student_index_v1&quot;
+  },
+  &quot;dest&quot;: {
+    &quot;index&quot;: &quot;student_index_v2&quot;
+  }
+}
+
+GET student_index_v2/_search
+
+
+
+PUT student_index_v2/_doc/2
+{
+  &quot;birthday&quot;:&quot;1999年11月11日&quot;
+}
+
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>3.创建索引库别名：</p><p>注意：DELETE student_index_v1 这一操作将删除student_index_v1索引库，并不是删除别名</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code># 思考： 现在java代码中操作es，还是使用的实student_index_v1老的索引名称。
+# 1. 改代码（不推荐）
+# 2. 索引别名（推荐）
+
+# 步骤：
+# 0. 先删除student_index_v1
+# 1. 给student_index_v2起个别名 student_index_v1
+
+
+
+# 先删除student_index_v1
+#DELETE student_index_v1 这一操作将删除student_index_v1索引库
+#索引库默认的别名与索引库同名，无法删除
+
+# 给student_index_v1起个别名 student_index_v11
+POST student_index_v2/_alias/student_index_v11
+#测试删除命令
+POST /_aliases
+{
+    &quot;actions&quot;: [
+        {&quot;remove&quot;: {&quot;index&quot;: &quot;student_index_v1&quot;, &quot;alias&quot;: &quot;student_index_v11&quot;}}
+    ]
+}
+
+# 给student_index_v2起个别名 student_index_v1
+POST student_index_v2/_alias/student_index_v1
+
+#查询别名
+GET goods/_alias/
+
+
+GET student_index_v1/_search
+GET student_index_v2/_search
+
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!----><footer class="page-meta"><div class="meta-item edit-link"><a href="https://github.com/wherywan/learning_research/edit/main/note/spring/springboot/整合es.md" rel="noopener noreferrer" target="_blank" aria-label="编辑此页" class="nav-link label"><!--[--><svg xmlns="http://www.w3.org/2000/svg" class="icon edit-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="edit icon"><path d="M430.818 653.65a60.46 60.46 0 0 1-50.96-93.281l71.69-114.012 7.773-10.365L816.038 80.138A60.46 60.46 0 0 1 859.225 62a60.46 60.46 0 0 1 43.186 18.138l43.186 43.186a60.46 60.46 0 0 1 0 86.373L588.879 565.55l-8.637 8.637-117.466 68.234a60.46 60.46 0 0 1-31.958 11.229z"></path><path d="M728.802 962H252.891A190.883 190.883 0 0 1 62.008 771.98V296.934a190.883 190.883 0 0 1 190.883-192.61h267.754a60.46 60.46 0 0 1 0 120.92H252.891a69.962 69.962 0 0 0-69.098 69.099V771.98a69.962 69.962 0 0 0 69.098 69.098h475.911A69.962 69.962 0 0 0 797.9 771.98V503.363a60.46 60.46 0 1 1 120.922 0V771.98A190.883 190.883 0 0 1 728.802 962z"></path></svg><!--]-->编辑此页<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!----></a></div><div class="meta-item update-time"><span class="label">上次编辑于: </span><!----></div><div class="meta-item contributors"><span class="label">贡献者: </span><!--[--><!--[--><span class="contributor" title="email: wanhx@xports.cn">wanhx</span><!--]--><!--]--></div></footer><nav class="page-nav"><a href="/note/spring/springboot/%E6%95%B4%E5%90%88elk.html" class="nav-link prev" aria-label="整合elk"><div class="hint"><span class="arrow left"></span>上一页</div><div class="link"><!---->整合elk</div></a><a href="/note/spring/springboot/%E6%95%B4%E5%90%88minio%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD.html" class="nav-link next" aria-label="整合minio"><div class="hint">下一页<span class="arrow right"></span></div><div class="link">整合minio<!----></div></a></nav><!----><!----><!--]--></main><!--]--><!----><!--]--></div><!--]--><!----><!--]--></div>
+    <script type="module" src="/assets/app.73c2932c.js" defer></script>
+  </body>
+</html>
