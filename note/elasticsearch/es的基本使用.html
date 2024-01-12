@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-beta.51" />
+    <meta name="theme" content="VuePress Theme Hope" />
+    <title>es基本使用 | HONGXU</title><meta name="description" content="个人博客">
+    <style>
+      :root {
+        --bg-color: #fff;
+      }
+
+      html[data-theme="dark"] {
+        --bg-color: #1d2025;
+      }
+
+      html,
+      body {
+        background: var(--bg-color);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.querySelector("html").setAttribute("data-theme", "dark");
+      }
+    </script>
+    <link rel="stylesheet" href="/assets/style.4e4a549b.css">
+    <link rel="modulepreload" href="/assets/app.4d667c68.js"><link rel="modulepreload" href="/assets/es的基本使用.html.78444edf.js"><link rel="modulepreload" href="/assets/_plugin-vue_export-helper.cdc0426e.js"><link rel="modulepreload" href="/assets/es的基本使用.html.b4c6df75.js"><link rel="prefetch" href="/assets/index.html.a2ae31da.js"><link rel="prefetch" href="/assets/fafwfw.html.fb19f8c1.js"><link rel="prefetch" href="/assets/index.html.dced8a1d.js"><link rel="prefetch" href="/assets/FAQ.html.b3df9f36.js"><link rel="prefetch" href="/assets/【Markdown编辑器快捷键】汇总.html.ba090e64.js"><link rel="prefetch" href="/assets/test.html.ece31899.js"><link rel="prefetch" href="/assets/基本命令使用.html.9fcbb84f.js"><link rel="prefetch" href="/assets/算法题整理.html.fca170e3.js"><link rel="prefetch" href="/assets/es和kibana安装配置.html.656faf72.js"><link rel="prefetch" href="/assets/html知识点整理.html.83a414aa.js"><link rel="prefetch" href="/assets/maven问题整理.html.364b8f73.js"><link rel="prefetch" href="/assets/oauth2的全流程.html.f1fb6e2c.js"><link rel="prefetch" href="/assets/静态方法调用注入bean.html.19bfd7e1.js"><link rel="prefetch" href="/assets/sharding-jdbc.html.87f28d8c.js"><link rel="prefetch" href="/assets/docker搭建环境.html.6f21238d.js"><link rel="prefetch" href="/assets/使用Flyway进行数据库迁移.html.97fd1d2d.js"><link rel="prefetch" href="/assets/Maven实现一键打包部署.html.4ea59e9a.js"><link rel="prefetch" href="/assets/基于jenkins_docker的持续集成环境部署.html.00a505a8.js"><link rel="prefetch" href="/assets/Quartz任务调度框架原理.html.80dc9ee9.js"><link rel="prefetch" href="/assets/Spring MVC之RequestContextHolder和LocaleContextHolder的使用详解以及使用误区.html.d3371f6b.js"><link rel="prefetch" href="/assets/QueryWrapper常用方法.html.67081961.js"><link rel="prefetch" href="/assets/fastjson的使用——JSON字符串、JSON对象、Java对象的互转.html.6ed95081.js"><link rel="prefetch" href="/assets/格式化日期时间.html.6114dd35.js"><link rel="prefetch" href="/assets/集合stream相关操作.html.de0ba4d9.js"><link rel="prefetch" href="/assets/静态方法和泛型.html.27f3703b.js"><link rel="prefetch" href="/assets/docx和doc互转.html.4c3623e4.js"><link rel="prefetch" href="/assets/word转html.html.28971dfa.js"><link rel="prefetch" href="/assets/word转pdf.html.8acedd9b.js"><link rel="prefetch" href="/assets/如何实现定时任务调度.html.ec30ee6d.js"><link rel="prefetch" href="/assets/如何实现接口幂等性.html.b5f98a8f.js"><link rel="prefetch" href="/assets/生成word.html.95aed98d.js"><link rel="prefetch" href="/assets/日志配置文件.html.ab910729.js"><link rel="prefetch" href="/assets/mysql.html.00d7bf11.js"><link rel="prefetch" href="/assets/mysql8.0安装教程(解压版).html.c693637b.js"><link rel="prefetch" href="/assets/Oracle关于date类型的查询方式及效率浅析.html.e1d4b7ab.js"><link rel="prefetch" href="/assets/Oracle相关.html.6269a6be.js"><link rel="prefetch" href="/assets/id自增长方案.html.75f7ae19.js"><link rel="prefetch" href="/assets/oracle时间戳函数及相关操作.html.290edae3.js"><link rel="prefetch" href="/assets/sequence.html.01913139.js"><link rel="prefetch" href="/assets/批量插入数据.html.24a0fa38.js"><link rel="prefetch" href="/assets/dubbo.html.55360f99.js"><link rel="prefetch" href="/assets/gateway.html.f4adc050.js"><link rel="prefetch" href="/assets/nacos.html.a19ee52c.js"><link rel="prefetch" href="/assets/sentinel.html.6cfa5ca1.js"><link rel="prefetch" href="/assets/security使用.html.8c0e1d31.js"><link rel="prefetch" href="/assets/security原理.html.a3199eaa.js"><link rel="prefetch" href="/assets/整合elk.html.2f62cad0.js"><link rel="prefetch" href="/assets/整合es.html.1dc0e47d.js"><link rel="prefetch" href="/assets/整合minio实现文件上传和下载.html.1ebaa1f9.js"><link rel="prefetch" href="/assets/kafka使用.html.668032c1.js"><link rel="prefetch" href="/assets/rabbit安装.html.6245e078.js"><link rel="prefetch" href="/assets/QueryWrapper、LambdaQueryWrapper和LambdaQueryChainWrapper的用法(二).html.3126dc49.js"><link rel="prefetch" href="/assets/UpdateWrapper.html.f21aa8bd.js"><link rel="prefetch" href="/assets/分页.html.7f44a976.js"><link rel="prefetch" href="/assets/基础用法.html.53bfaf7d.js"><link rel="prefetch" href="/assets/批量插入.html.204f7f52.js"><link rel="prefetch" href="/assets/404.html.c5de7dd9.js"><link rel="prefetch" href="/assets/index.html.2f713335.js"><link rel="prefetch" href="/assets/index.html.1a811f74.js"><link rel="prefetch" href="/assets/index.html.79fe6d6e.js"><link rel="prefetch" href="/assets/index.html.dcd15e89.js"><link rel="prefetch" href="/assets/index.html.e8952663.js"><link rel="prefetch" href="/assets/index.html.5ad7ff00.js"><link rel="prefetch" href="/assets/index.html.92637d35.js"><link rel="prefetch" href="/assets/index.html.7e924de7.js"><link rel="prefetch" href="/assets/index.html.5b971275.js"><link rel="prefetch" href="/assets/index.html.a99d180d.js"><link rel="prefetch" href="/assets/index.html.fb16b232.js"><link rel="prefetch" href="/assets/index.html.0f8c6f75.js"><link rel="prefetch" href="/assets/fafwfw.html.9418a6e5.js"><link rel="prefetch" href="/assets/index.html.67148146.js"><link rel="prefetch" href="/assets/FAQ.html.be7774a6.js"><link rel="prefetch" href="/assets/【Markdown编辑器快捷键】汇总.html.a3551968.js"><link rel="prefetch" href="/assets/test.html.c0403a27.js"><link rel="prefetch" href="/assets/基本命令使用.html.403e251d.js"><link rel="prefetch" href="/assets/算法题整理.html.facf7e00.js"><link rel="prefetch" href="/assets/es和kibana安装配置.html.dfb75cf7.js"><link rel="prefetch" href="/assets/html知识点整理.html.f1b5256a.js"><link rel="prefetch" href="/assets/maven问题整理.html.30f07f85.js"><link rel="prefetch" href="/assets/oauth2的全流程.html.7e9aec60.js"><link rel="prefetch" href="/assets/静态方法调用注入bean.html.1879f8c9.js"><link rel="prefetch" href="/assets/sharding-jdbc.html.545194d8.js"><link rel="prefetch" href="/assets/docker搭建环境.html.0090b063.js"><link rel="prefetch" href="/assets/使用Flyway进行数据库迁移.html.7969cb27.js"><link rel="prefetch" href="/assets/Maven实现一键打包部署.html.d3916189.js"><link rel="prefetch" href="/assets/基于jenkins_docker的持续集成环境部署.html.4fefae77.js"><link rel="prefetch" href="/assets/Quartz任务调度框架原理.html.983d8374.js"><link rel="prefetch" href="/assets/Spring MVC之RequestContextHolder和LocaleContextHolder的使用详解以及使用误区.html.d0e7a91a.js"><link rel="prefetch" href="/assets/QueryWrapper常用方法.html.1d04aeaa.js"><link rel="prefetch" href="/assets/fastjson的使用——JSON字符串、JSON对象、Java对象的互转.html.f7aedb9d.js"><link rel="prefetch" href="/assets/格式化日期时间.html.bd9e24ed.js"><link rel="prefetch" href="/assets/集合stream相关操作.html.5d829b4f.js"><link rel="prefetch" href="/assets/静态方法和泛型.html.7d92d90f.js"><link rel="prefetch" href="/assets/docx和doc互转.html.027e2780.js"><link rel="prefetch" href="/assets/word转html.html.b8c060cf.js"><link rel="prefetch" href="/assets/word转pdf.html.208c3faa.js"><link rel="prefetch" href="/assets/如何实现定时任务调度.html.90e39dd1.js"><link rel="prefetch" href="/assets/如何实现接口幂等性.html.b4c7cc49.js"><link rel="prefetch" href="/assets/生成word.html.bcdae325.js"><link rel="prefetch" href="/assets/日志配置文件.html.23ba4e84.js"><link rel="prefetch" href="/assets/mysql.html.53f21f6e.js"><link rel="prefetch" href="/assets/mysql8.0安装教程(解压版).html.0b7ed189.js"><link rel="prefetch" href="/assets/Oracle关于date类型的查询方式及效率浅析.html.f034dc09.js"><link rel="prefetch" href="/assets/Oracle相关.html.21feb8c9.js"><link rel="prefetch" href="/assets/id自增长方案.html.b87477b7.js"><link rel="prefetch" href="/assets/oracle时间戳函数及相关操作.html.e3d7b56b.js"><link rel="prefetch" href="/assets/sequence.html.e2a339bc.js"><link rel="prefetch" href="/assets/批量插入数据.html.0a289a1e.js"><link rel="prefetch" href="/assets/dubbo.html.316b69fc.js"><link rel="prefetch" href="/assets/gateway.html.5f6eb9b8.js"><link rel="prefetch" href="/assets/nacos.html.81ce69c5.js"><link rel="prefetch" href="/assets/sentinel.html.a994e5f2.js"><link rel="prefetch" href="/assets/security使用.html.840423d8.js"><link rel="prefetch" href="/assets/security原理.html.2cb58ad2.js"><link rel="prefetch" href="/assets/整合elk.html.5ea6e37a.js"><link rel="prefetch" href="/assets/整合es.html.78aba307.js"><link rel="prefetch" href="/assets/整合minio实现文件上传和下载.html.90252f2b.js"><link rel="prefetch" href="/assets/kafka使用.html.7941cb77.js"><link rel="prefetch" href="/assets/rabbit安装.html.085e5255.js"><link rel="prefetch" href="/assets/QueryWrapper、LambdaQueryWrapper和LambdaQueryChainWrapper的用法(二).html.34b4322d.js"><link rel="prefetch" href="/assets/UpdateWrapper.html.92cf4e7c.js"><link rel="prefetch" href="/assets/分页.html.76fcd1e0.js"><link rel="prefetch" href="/assets/基础用法.html.3ce5c230.js"><link rel="prefetch" href="/assets/批量插入.html.895d4ad1.js"><link rel="prefetch" href="/assets/404.html.ec44aeb3.js"><link rel="prefetch" href="/assets/index.html.9191a9cd.js"><link rel="prefetch" href="/assets/index.html.c40b2015.js"><link rel="prefetch" href="/assets/index.html.2e16174c.js"><link rel="prefetch" href="/assets/index.html.e8b4d9fb.js"><link rel="prefetch" href="/assets/index.html.915b6ad9.js"><link rel="prefetch" href="/assets/index.html.195f978b.js"><link rel="prefetch" href="/assets/index.html.6fa4b8e4.js"><link rel="prefetch" href="/assets/index.html.0cce01dd.js"><link rel="prefetch" href="/assets/index.html.2ec3a18a.js"><link rel="prefetch" href="/assets/index.html.b142fe4a.js"><link rel="prefetch" href="/assets/index.html.f86f5ce1.js"><link rel="prefetch" href="/assets/mermaid.core.5ea15c44.js"><link rel="prefetch" href="/assets/photoswipe.esm.720e8656.js">
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="skip-link sr-only">Skip to content</a><!--]--><div class="theme-container has-toc"><!--[--><!--[--><header class="navbar"><div class="navbar-left"><button class="toggle-sidebar-button" title="Toggle Sidebar"><span class="icon"></span></button><!--[--><!----><!--]--><a href="/" class="brand"><img class="logo" src="/images/logo.jpeg" alt="HONGXU"><!----><span class="site-name hide-in-pad">HONGXU</span></a><!--[--><!----><!--]--></div><div class="navbar-center"><!--[--><!----><!--]--><nav class="nav-links"><div class="nav-item hide-in-mobile"><a href="/" class="nav-link" aria-label="主页"><!---->主页<!----></a></div><div class="nav-item hide-in-mobile"><a href="/guide/fafwfw.html" class="nav-link" aria-label="向导"><!---->向导<!----></a></div></nav><!--[--><!----><!--]--></div><div class="navbar-right"><!--[--><!----><!--]--><!----><div class="nav-item"><a class="repo-link" href="https://github.com/easywhx/learning" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="icon github-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="github icon" style="width:1.25rem;height:1.25rem;vertical-align:middle;"><path d="M511.957 21.333C241.024 21.333 21.333 240.981 21.333 512c0 216.832 140.544 400.725 335.574 465.664 24.49 4.395 32.256-10.07 32.256-23.083 0-11.69.256-44.245 0-85.205-136.448 29.61-164.736-64.64-164.736-64.64-22.315-56.704-54.4-71.765-54.4-71.765-44.587-30.464 3.285-29.824 3.285-29.824 49.195 3.413 75.179 50.517 75.179 50.517 43.776 75.008 114.816 53.333 142.762 40.79 4.523-31.66 17.152-53.377 31.19-65.537-108.971-12.458-223.488-54.485-223.488-242.602 0-53.547 19.114-97.323 50.517-131.67-5.035-12.33-21.93-62.293 4.779-129.834 0 0 41.258-13.184 134.912 50.346a469.803 469.803 0 0 1 122.88-16.554c41.642.213 83.626 5.632 122.88 16.554 93.653-63.488 134.784-50.346 134.784-50.346 26.752 67.541 9.898 117.504 4.864 129.834 31.402 34.347 50.474 78.123 50.474 131.67 0 188.586-114.73 230.016-224.042 242.09 17.578 15.232 33.578 44.672 33.578 90.454v135.85c0 13.142 7.936 27.606 32.854 22.87C862.25 912.597 1002.667 728.747 1002.667 512c0-271.019-219.648-490.667-490.71-490.667z"></path></svg></a></div><div class="nav-item hide-in-mobile"><button class="outlook-button" tabindex="-1" ariahidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="icon outlook-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="outlook icon"><path d="M224 800c0 9.6 3.2 44.8 6.4 54.4 6.4 48-48 76.8-48 76.8s80 41.6 147.2 0 134.4-134.4 38.4-195.2c-22.4-12.8-41.6-19.2-57.6-19.2C259.2 716.8 227.2 761.6 224 800zM560 675.2l-32 51.2c-51.2 51.2-83.2 32-83.2 32 25.6 67.2 0 112-12.8 128 25.6 6.4 51.2 9.6 80 9.6 54.4 0 102.4-9.6 150.4-32l0 0c3.2 0 3.2-3.2 3.2-3.2 22.4-16 12.8-35.2 6.4-44.8-9.6-12.8-12.8-25.6-12.8-41.6 0-54.4 60.8-99.2 137.6-99.2 6.4 0 12.8 0 22.4 0 12.8 0 38.4 9.6 48-25.6 0-3.2 0-3.2 3.2-6.4 0-3.2 3.2-6.4 3.2-6.4 6.4-16 6.4-16 6.4-19.2 9.6-35.2 16-73.6 16-115.2 0-105.6-41.6-198.4-108.8-268.8C704 396.8 560 675.2 560 675.2zM224 419.2c0-28.8 22.4-51.2 51.2-51.2 28.8 0 51.2 22.4 51.2 51.2 0 28.8-22.4 51.2-51.2 51.2C246.4 470.4 224 448 224 419.2zM320 284.8c0-22.4 19.2-41.6 41.6-41.6 22.4 0 41.6 19.2 41.6 41.6 0 22.4-19.2 41.6-41.6 41.6C339.2 326.4 320 307.2 320 284.8zM457.6 208c0-12.8 12.8-25.6 25.6-25.6 12.8 0 25.6 12.8 25.6 25.6 0 12.8-12.8 25.6-25.6 25.6C470.4 233.6 457.6 220.8 457.6 208zM128 505.6C128 592 153.6 672 201.6 736c28.8-60.8 112-60.8 124.8-60.8-16-51.2 16-99.2 16-99.2l316.8-422.4c-48-19.2-99.2-32-150.4-32C297.6 118.4 128 291.2 128 505.6zM764.8 86.4c-22.4 19.2-390.4 518.4-390.4 518.4-22.4 28.8-12.8 76.8 22.4 99.2l9.6 6.4c35.2 22.4 80 12.8 99.2-25.6 0 0 6.4-12.8 9.6-19.2 54.4-105.6 275.2-524.8 288-553.6 6.4-19.2-3.2-32-19.2-32C777.6 76.8 771.2 80 764.8 86.4z"></path></svg><div class="outlook-dropdown"><!----></div></button></div><!----><!--[--><!----><!--]--><button class="toggle-navbar-button" aria-label="Toggle Navbar" aria-expanded="false" aria-controls="nav-screen"><span class="button-container"><span class="button-top"></span><span class="button-middle"></span><span class="button-bottom"></span></span></button></div></header><!----><!--]--><!----><div class="toggle-sidebar-wrapper"><span class="arrow left"></span></div><aside class="sidebar"><!--[--><!----><!--]--><ul class="sidebar-links"><li><!--[--><a href="/note/FAQ.html" class="nav-link sidebar-link sidebar-page" aria-label="FAQ"><!---->FAQ<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><!--[--><a href="/note/%E3%80%90Markdown%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E3%80%91%E6%B1%87%E6%80%BB.html" class="nav-link sidebar-link sidebar-page" aria-label="Markdown快捷键"><!---->Markdown快捷键<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">database</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable active"><!----><span class="title">elasticsearch</span><span class="arrow down"></span></button><ul class="sidebar-links"><li><!--[--><a href="/note/elasticsearch/es%E5%92%8Ckibana%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.html" class="nav-link sidebar-link sidebar-page" aria-label="es和kibana安装配置"><!---->es和kibana安装配置<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><!--[--><a aria-current="page" href="/note/elasticsearch/es%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html" class="router-link-active router-link-exact-active nav-link active sidebar-link sidebar-page active" aria-label="es基本使用"><!---->es基本使用<!----></a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a aria-current="page" href="/note/elasticsearch/es%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html#基础增删改查" class="router-link-active router-link-exact-active nav-link sidebar-link heading" aria-label="基础增删改查"><!---->基础增删改查<!----></a><ul class="sidebar-sub-headers"></ul></li><li class="sidebar-sub-header"><a aria-current="page" href="/note/elasticsearch/es%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html#搜索" class="router-link-active router-link-exact-active nav-link sidebar-link heading" aria-label="搜索"><!---->搜索<!----></a><ul class="sidebar-sub-headers"></ul></li></ul><!--]--></li></ul></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">algorithm</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">html</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">JAVA</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">Linux</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">maven</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">Oauth2</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">Spring</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">消息中间件</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">环境搭建</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">分库分表</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">迁移</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">项目部署</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">go</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">web</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">中间件</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">前端</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">应用方案</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">数据库</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">服务器环境</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">架构</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">网络通信</span><span class="arrow right"></span></button><!----></section></li></ul><!--[--><!----><!--]--></aside><!--[--><main class="page" id="main-content"><!--[--><!----><nav class="breadcrumb disable"></nav><div class="page-title"><h1><!---->es基本使用</h1><div class="page-info"><span class="author-info" aria-label="作者🖊" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon author-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="author icon"><path d="M649.6 633.6c86.4-48 147.2-144 147.2-249.6 0-160-128-288-288-288s-288 128-288 288c0 108.8 57.6 201.6 147.2 249.6-121.6 48-214.4 153.6-240 288-3.2 9.6 0 19.2 6.4 25.6 3.2 9.6 12.8 12.8 22.4 12.8h704c9.6 0 19.2-3.2 25.6-12.8 6.4-6.4 9.6-16 6.4-25.6-25.6-134.4-121.6-240-243.2-288z"></path></svg><span><span class="author-item">HONGXU</span></span><span property="author" content="HONGXU"></span></span><!----><span class="date-info" aria-label="写作日期📅" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon calendar-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="calendar icon"><path d="M716.4 110.137c0-18.753-14.72-33.473-33.472-33.473-18.753 0-33.473 14.72-33.473 33.473v33.473h66.993v-33.473zm-334.87 0c0-18.753-14.72-33.473-33.473-33.473s-33.52 14.72-33.52 33.473v33.473h66.993v-33.473zm468.81 33.52H716.4v100.465c0 18.753-14.72 33.473-33.472 33.473a33.145 33.145 0 01-33.473-33.473V143.657H381.53v100.465c0 18.753-14.72 33.473-33.473 33.473a33.145 33.145 0 01-33.473-33.473V143.657H180.6A134.314 134.314 0 0046.66 277.595v535.756A134.314 134.314 0 00180.6 947.289h669.74a134.36 134.36 0 00133.94-133.938V277.595a134.314 134.314 0 00-133.94-133.938zm33.473 267.877H147.126a33.145 33.145 0 01-33.473-33.473c0-18.752 14.72-33.473 33.473-33.473h736.687c18.752 0 33.472 14.72 33.472 33.473a33.145 33.145 0 01-33.472 33.473z"></path></svg><span>2022年12月25日</span><meta property="datePublished" content="2022-12-25T15:22:16.000Z"></span><!----><!----><span class="reading-time-info" aria-label="阅读时间⌛" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon timer-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="timer icon"><path d="M799.387 122.15c4.402-2.978 7.38-7.897 7.38-13.463v-1.165c0-8.933-7.38-16.312-16.312-16.312H256.33c-8.933 0-16.311 7.38-16.311 16.312v1.165c0 5.825 2.977 10.874 7.637 13.592 4.143 194.44 97.22 354.963 220.201 392.763-122.204 37.542-214.893 196.511-220.2 389.397-4.661 5.049-7.638 11.651-7.638 19.03v5.825h566.49v-5.825c0-7.379-2.849-13.981-7.509-18.9-5.049-193.016-97.867-351.985-220.2-389.527 123.24-37.67 216.446-198.453 220.588-392.892zM531.16 450.445v352.632c117.674 1.553 211.787 40.778 211.787 88.676H304.097c0-48.286 95.149-87.382 213.728-88.676V450.445c-93.077-3.107-167.901-81.297-167.901-177.093 0-8.803 6.99-15.793 15.793-15.793 8.803 0 15.794 6.99 15.794 15.793 0 80.261 63.69 145.635 142.01 145.635s142.011-65.374 142.011-145.635c0-8.803 6.99-15.793 15.794-15.793s15.793 6.99 15.793 15.793c0 95.019-73.789 172.82-165.96 177.093z"></path></svg><span>大约 19 分钟</span><meta property="timeRequired" content="PT19M"></span></div><hr></div><div class="toc-place-holder"><aside id="toc"><div class="toc-header">此页内容</div><div class="toc-wrapper"><ul class="toc-list"><!--[--><li class="toc-item"><a aria-current="page" href="/note/elasticsearch/es%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html#基础增删改查" class="router-link-active router-link-exact-active toc-link level3">基础增删改查</a></li><!----><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/note/elasticsearch/es%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html#搜索" class="router-link-active router-link-exact-active toc-link level3">搜索</a></li><!----><!--]--></ul></div></aside></div><!----><div class="theme-hope-content"><h1 id="es基本使用" tabindex="-1"><a class="header-anchor" href="#es基本使用" aria-hidden="true">#</a> es基本使用</h1><p><a href="https://huaweicloud.csdn.net/637f7731dacf622b8df84da4.html" target="_blank" rel="noopener noreferrer">参考链接-ES基本知识语法以及kibana操作<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><h4 id="通过kibana来操作es-rest-api" tabindex="-1"><a class="header-anchor" href="#通过kibana来操作es-rest-api" aria-hidden="true">#</a> 通过Kibana来操作ES Rest API</h4><p>知识点思维导图 <img src="/assets/2624cf6e.16b66875.png" alt=""></p><h3 id="基础增删改查" tabindex="-1"><a class="header-anchor" href="#基础增删改查" aria-hidden="true">#</a> 基础增删改查</h3><h4 id="语法" tabindex="-1"><a class="header-anchor" href="#语法" aria-hidden="true">#</a> 语法</h4><p>(1) 创建/全量替换</p><p>记录不存在就是创建, 否则是全量替换.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>PUT /index/type/id  
+{
+&quot;属性名&quot; : &quot;value&quot;
+...
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>12345<strong>加粗样式</strong> (2) 创建/修改</p><p>创建</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>//如果不传id, 则系统自动生成一个UUID
+POST /index/type/
+{
+&quot;属性名&quot;:修改值
+}
+或者
+POST /index/type/id
+{
+&quot;属性名&quot;:修改值
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>修改</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>//没有带上的属性会被清除
+POST /index/type/id
+{
+&quot;属性名&quot;:修改值
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(3) 查询</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /index/type/id
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>(4) 删除</p><p>只是逻辑删除, 将其标记为delete, 当数据越来越多时, ES会自动物理删除.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>DELETE /index/type/id
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>实例</p><p>(1) 新增</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>PUT /company/employee/1
+{
+&quot;age&quot;:25,
+&quot;salary&quot;:&quot;20k&quot;,
+&quot;skill&quot;:[&quot;java&quot;,&quot;mysql&quot;,&quot;es&quot;]
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>或者</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>POST /company/employee
+{
+&quot;age&quot;:30,
+&quot;salary&quot;:&quot;30k&quot;,
+&quot;skill&quot;:[&quot;python&quot;,&quot;redis&quot;,&quot;hadoop&quot;]
+}
+
+POST /company/employee/2
+{
+“age”:22,
+“salary”:“10k”,
+“skill”:[“python”,“java”]
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>POST 命令新增数据时, 如果不传id, 则系统自动生成一个UUID.</p><p>(2) 查询</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /company/employee/1
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>(3) 修改</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>POST /company/employee/1
+{
+&quot;age&quot;:40,
+&quot;salary&quot;:&quot;100k&quot;
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>或</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>PUT /company/employee/1
+{
+&quot;age&quot;:18,
+&quot;salary&quot;:&quot;50K&quot;,
+&quot;skill&quot;:[&quot;c++&quot;]
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>PUT 是全量替换, 且是幂等操作. 上面的POST修改, skill属性被清除了, 属性现在只有age和salary.</p><blockquote><p>幂等操作: GET, PUT, DELETE都是幂等操作, 执行多次与执行一次结果一样.</p></blockquote><p>(4) 删除</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>DELETE /company/employee/1
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>Partial Update 部分更新.</p><p>(1) 语法</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>post /index/type/id/_update
+{
+&quot;doc&quot;: {
+&quot;属性名&quot; : &quot;value&quot;
+...
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(2) 与全量替换和普通修改的区别</p><p>在应用程序中, 全量替换是先从ES中查询出记录, 然后在修改, 一个属性都不能少. 而部分更新就不用先从ES查询记录了, 可以直接修改, 且不用所有属性都列出.</p><p>部分更新如果只包含部分属性, 那么其他没有被包含的属性仍然存在, 但普通修改其他没有被包含的属性就直接清除了.</p><p>(3) 实例</p><p>a. 先添加一条数据</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>PUT /school/student/1
+{
+&quot;name&quot;: &quot;alice&quot;,
+&quot;age&quot;: 17
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b. 测试部分更新</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>//部分更新
+POST /school/student/1/_update
+{
+&quot;doc&quot;: {
+&quot;name&quot; : &quot;Tom&quot;
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>//查询</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /school/student/1
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>//结果</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
+“_index”: “school”,
+“_type”: “student”,
+“_id”: “1”,
+“_version”: 7,
+“found”: true,
+“_source”: {
+“name”: “Tom”,
+“age”: 17
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>c. 测试普通修改</p><p>//普通修改</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>POST /school/student/1
+{
+&quot;name&quot; : &quot;Linda&quot;
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>//查询 GET school/student/1</p><p>//结果 { “_index”: “school”, “_type”: “student”, “_id”: “1”, “_version”: 8, “found”: true, “_source”: { “name”: “Linda” } }</p><p>Bulk Operation 批量查询和批量增删改的语法不同, 所以分开来介绍.</p><p>批量查询</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /_mget
+{
+&quot;docs&quot; : [
+{
+&quot;_index&quot; : &quot;company&quot;,
+&quot;_type&quot; : &quot;employee&quot;,
+&quot;_id&quot; : 1
+},
+{
+&quot;_index&quot; : &quot;company&quot;,
+&quot;_type&quot; : &quot;employee&quot;,
+&quot;_id&quot; : 2
+}
+]
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>GET /company/_mget { “docs” : [ { “_type” : “employee”, “_id” : 1 }, { “_type” : “employee”, “_id” : 2 } ] }</p><p>GET /company/employee/_mget { “ids” : [1,2] }</p><p>批量增删改</p><p>(1) 语法</p><p>每一个操作要两个json串，语法如下：</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>POST /index/type/_bulk
+{&quot;action&quot;: {&quot;metadata&quot;}}
+{&quot;data&quot;}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>index和type可以放入metadata中. 每个json串不能换行, 只能放一行. 同时一个json串和一个json串之间, 必须有一个换行.</p><p>(2) action类型</p><p>delete</p><p>删除.</p><p>create</p><p>强制创建. PUT /index/type/id/_create</p><p>index</p><p>创建或替换.</p><p>update</p><p>属于部分更新.</p><p>(3) 实例</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>POST /_bulk
+{&quot;delete&quot; : {&quot;_index&quot;:&quot;company&quot;, &quot;_type&quot;:&quot;employee&quot;,&quot;_id&quot;:&quot;1&quot;}}
+{&quot;create&quot; :{&quot;_index&quot;:&quot;company&quot;,&quot;_type&quot;:&quot;employee&quot;,&quot;_id&quot;:&quot;2&quot;}}
+{&quot;name&quot;:&quot;tyshawn&quot;, &quot;age&quot;:18}
+{&quot;index&quot;:{&quot;_index&quot;:&quot;company&quot;,&quot;_type&quot;:&quot;employee&quot;,&quot;_id&quot;:&quot;3&quot;}}
+{&quot;name&quot;:&quot;lee&quot;, &quot;age&quot;:24}
+{&quot;update&quot;:{&quot;_index&quot;:&quot;company&quot;,&quot;_type&quot;:&quot;employee&quot;,&quot;_id&quot;:&quot;2&quot;}}
+{&quot;doc&quot;:{&quot;age&quot;:30}}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="搜索" tabindex="-1"><a class="header-anchor" href="#搜索" aria-hidden="true">#</a> 搜索</h3><p>添加搜索实例数据.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>PUT /website/article/1
+{
+&quot;post_date&quot;: &quot;2017-01-01&quot;,
+&quot;title&quot;: &quot;my first article&quot;,
+&quot;content&quot;: &quot;this is my first article in this website&quot;,
+&quot;author_id&quot;: 11401,
+&quot;tags&quot;: [
+&quot;java&quot;,
+&quot;c&quot;
+]
+}
+PUT /website/article/2
+{
+“post_date”: “2017-01-02”,
+“title”: “my second article”,
+“content”: “this is my second article in this website”,
+“author_id”: 11402,
+“tags”: [
+“redis”,
+“linux”
+]
+}
+
+PUT /website/article/3
+{
+“post_date”: “2017-01-03”,
+“title”: “my third article”,
+“content”: “this is my third article in this website”,
+“author_id”: 11403,
+“tags”: [
+“elaticsearch”,
+“kafka”
+]
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>mapping结构如下:</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/_mapping/article
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>{ “website”: { “mappings”: { “article”: { “properties”: { “author_id”: { “type”: “long” }, “content”: { “type”: “text”, “fields”: { “keyword”: { “type”: “keyword”, “ignore_above”: 256 } } }, “post_date”: { “type”: “date” }, “tags”: { “type”: “text”, “fields”: { “keyword”: { “type”: “keyword”, “ignore_above”: 256 } } }, “title”: { “type”: “text”, “fields”: { “keyword”: { “type”: “keyword”, “ignore_above”: 256 } } } } } } } }</p><p>当type = text时, ES默认会设置两个field, 一个分词, 一个不分词. 如content会分词, 而content.keyword不分词, content.keyword最多保留256个字符.</p><p>通用语法</p><p>(1) 搜索所有index数据.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /_search
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>1 (2) 搜索指定index, type下的数据(index和type可以有多个)</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /index1/_search
+GET /index1,index2/_search
+GET /index1/type1/_search
+GET /index1/type1,type2/_search
+GET /index1,index2/type1,type2/_search
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(3) 搜索所有index下的指定type的数据.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /_all/employee,product/_search
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>下面再介绍Elasticsearch搜索的条件语法.</p><h5 id="query-string-search" tabindex="-1"><a class="header-anchor" href="#query-string-search" aria-hidden="true">#</a> query string search</h5><p>这个查询就类似于HTTP里的GET请求, 参数放在URL上.</p><p>(1) 语法</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /index/type/_search?q=属性名:属性值
+GET /index/type/_search?q=+属性名:属性值
+GET /index/type/_search?q=-属性名:属性值
+也可以省略属性名, 直接q=属性值
+GET /index/type/_search?q=属性值
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(2) + 和 - 的区别</p><p>默认是+, 指必须包含该字段, - 指不包含该字段.</p><p>(3) 实例</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search?q=author_id:11403
+GET /website/article/_search?q=-author_id:11403
+GET /website/article/_search?q=11403
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(4) _all metadata的原理</p><p>GET /index/type/_search?q=属性值.</p><p>这个语句是从所有属性中搜索包含指定的关键字的数据. 那么ES在搜索时是遍历所有document中的每一个field吗? 不是的, 我们在插入一条document时, ES会自动将多个field的值, 全部用字符串的方式串联起来, 变成一个长的字符串(以空格作为分隔符)，作为_all field的值，同时进行分词建立倒排索引. 如果在搜索时没有指定属性名, 就会默认搜索_all field. (生产环境不使用)</p><h4 id="query-dsl" tabindex="-1"><a class="header-anchor" href="#query-dsl" aria-hidden="true">#</a> query DSL</h4><p>DSL, Domain Specified Language，特定领域的语言. 这个查询就类似于HTTP里的POST请求, 参数放在body中.</p><p>实例: 从website索引中查询所有文章</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match_all&quot;: {}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="full-text-search" tabindex="-1"><a class="header-anchor" href="#full-text-search" aria-hidden="true">#</a> full-text search</h5><p>全文搜索.</p><p>(1) 基础使用</p><p>a. 搜索标题中包含first或second的文章</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match&quot;: {
+&quot;title&quot;: &quot;first second&quot;
+}
+}
+}
+
+或者
+
+GET /website/article/_search
+{
+“query”: {
+“match”: {
+“title”: {
+“query”: “first second”
+, “operator”: “or”
+}
+}
+}
+}
+
+或者
+
+GET /website/article/_search
+{
+“query”: {
+“bool”: {
+“should”: [
+{“match”: {
+“title”:“first”
+}},
+{“match”: {
+“title”:“second”
+}}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b. 搜索标题中包含first和second的文章</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match&quot;: {
+&quot;title&quot;: {
+&quot;query&quot;: &quot;first second&quot;
+, &quot;operator&quot;: &quot;and&quot;
+}
+}
+}
+}
+或者
+
+GET /website/article/_search
+{
+“query”: {
+“bool”: {
+“must”: [
+{“match”: {
+“title”: “first”
+}},
+{“match”: {
+“title”: “second”
+}}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>c. 搜索标题中至少包含first, second, third, fourth中三个单词的文章.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match&quot;: {
+&quot;title&quot;: {
+&quot;query&quot;: &quot;first second third fourth&quot;,
+&quot;minimum_should_match&quot;: &quot;75%&quot;
+}
+}
+}
+}
+或者
+
+GET /website/article/_search
+{
+“query”: {
+“bool”: {
+“should”: [
+{“match”: {
+“title”: “first”
+}},
+{“match”: {
+“title”: “second”
+}},
+{“match”: {
+“title”: “third”
+}},
+{“match”: {
+“title”: “fourth”
+}}
+],
+“minimum_number_should_match”: 3
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>d. 从website索引中查询, 标题必须包含elasticsearch，内容可以包含elasticsearch也可以不包含，作者id必须不为111.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;bool&quot;: {
+&quot;must&quot;: [
+{
+&quot;match&quot;: {
+&quot;title&quot;:&quot;elasticsearch&quot;
+}
+}
+],
+&quot;should&quot;: [
+{
+&quot;match&quot;: {
+&quot;content&quot;:&quot;elasticsearch&quot;
+}
+}
+],
+&quot;must_not&quot;: [
+{
+&quot;match&quot;: {
+&quot;author_id&quot;:&quot;111&quot;
+}
+}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>e. 从website索引中查询, 标题包含first, 同时按作者id降序排序</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match&quot;: {
+&quot;title&quot;: &quot;first&quot;
+}
+},
+&quot;sort&quot;: [
+{
+&quot;author_id&quot;: {
+&quot;order&quot;: &quot;desc&quot;
+}
+}
+]
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>f. 从website索引中分页查询，总共3篇文章，假设每页就显示1篇文章，现在显示第2页</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match_all&quot;: {}
+},
+&quot;from&quot;: 1,
+&quot;size&quot;: 1
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>g. 从website索引中查询所有文章, 只显示post_date, title两个属性.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match_all&quot;: {}
+},
+&quot;_source&quot;: [&quot;post_date&quot;,&quot;title&quot;]
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>h. 搜索标题中包含 article 的文章, 如果标题中包含first或second就优先搜索出来, 同时, 如果一个文章标题包含first article, 另一个文章标题包含second article, 包含first article的文章要优先搜索出来.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>//通过加权重来处理, 默认权重为1
+GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;bool&quot;: {
+&quot;must&quot;: [
+{&quot;match&quot;: {
+&quot;title&quot;: &quot;article&quot;
+}}
+],
+&quot;should&quot;: [
+{&quot;match&quot;: {
+&quot;title&quot;: {
+&quot;query&quot;: &quot;first&quot;,
+&quot;boost&quot; : 3
+}
+}},
+{&quot;match&quot;: {
+&quot;title&quot;: {
+&quot;query&quot;: &quot;second&quot;,
+&quot;boost&quot;: 2
+}
+}}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(2) multi_match</p><p>multi_match 用于查询词匹配多个属性. 这里涉及到几种匹配策略:</p><p>best-fields</p><p>doc的某个属性匹配尽可能多的关键词, 那么这个doc会优先返回.</p><p>most-fields</p><p>某个关键词匹配doc尽可能多的属性, 那么这个doc会优先返回.</p><p>cross_fields</p><p>跨越多个field搜索一个关键词.</p><p>best-fields和most-fields的区别:</p><p>比如, doc1的field1匹配的三个关键词, doc2的field1, field2都匹配上了同一个关键词. 如果是best-fields策略, 则doc1的相关度分数要更高, 如果是most-fields策略, 则doc2的相关度分数要更高.</p><p>实例:</p><p>a. 使用best_fields策略, 从title和content中搜索&quot;my third article&quot;.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;multi_match&quot;: {
+&quot;query&quot;: &quot;my third article&quot;,
+&quot;type&quot;: &quot;best_fields&quot;,
+&quot;fields&quot;: [&quot;title&quot;,&quot;content&quot;]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b. 从title和content中搜索&quot;my third article&quot;, 且这三个单词要连在一起.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;multi_match&quot;: {
+&quot;query&quot;: &quot;my third article&quot;,
+&quot;type&quot;: &quot;cross_fields&quot;,
+&quot;operator&quot;: &quot;and&quot;,
+&quot;fields&quot;: [&quot;title&quot;,&quot;content&quot;]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(3) dis_max</p><p>在我们进行多个条件的全文搜索时, 最后的计算出的相关度分数是根据多个条件的匹配分数综合而来的, 比如score = (score1 + score2) / 2, 如果我们想让最终的相关度分数等于多个条件匹配分数中的最大值, 即score = max(score1, score2), 则可以使用dis_max.</p><p>实例: 搜索title或content中包含first或article的文章</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;bool&quot;: {
+&quot;should&quot;: [
+{
+&quot;match&quot;: {
+&quot;title&quot;: &quot;first article&quot;
+}
+},
+{
+&quot;match&quot;: {
+&quot;content&quot;: &quot;first article&quot;
+}
+}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>使用dis_max:</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;dis_max&quot;: {
+&quot;queries&quot;: [
+{
+&quot;match&quot;: {
+&quot;title&quot;: &quot;first article&quot;
+}
+},
+{
+&quot;match&quot;: {
+&quot;content&quot;: &quot;first article&quot;
+}
+}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(4) tie_breaker</p><p>tie_breaker是与dis_max配套使用的. dis_max只取分数最大的那个条件的分数, 完全不考虑其他条件的分数, 但如果在某些场景下也需要考虑其他条件的分数呢? 我们可以指定一个系数值tie_breaker, 将其他条件的分数乘以tie_breaker, 然后和最大分数综合起来计算最终得分.</p><p>tie_breaker的取值为 0 ~ 1之间.</p><p>a. 将上面的实例优化下:</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;dis_max&quot;: {
+&quot;tie_breaker&quot;: 0.7,
+&quot;queries&quot;: [
+{
+&quot;match&quot;: {
+&quot;title&quot;: &quot;first article&quot;
+}
+},
+{
+&quot;match&quot;: {
+&quot;content&quot;: &quot;first article&quot;
+}
+}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b. 继续优化. 如果搜索词包含多个关键字, 我们要求至少匹配多个关键词, 且多个条件的权重不同.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;dis_max&quot;: {
+&quot;tie_breaker&quot;: 0.7,
+&quot;queries&quot;: [
+{
+&quot;match&quot;: {
+&quot;title&quot;: {
+&quot;query&quot;: &quot;first article hello world&quot;,
+&quot;minimum_should_match&quot;: &quot;50%&quot;,
+&quot;boost&quot;: 2
+}
+}
+},
+{
+&quot;match&quot;: {
+&quot;content&quot;: {
+&quot;query&quot;: &quot;first article is my hero&quot;,
+&quot;minimum_should_match&quot;: &quot;20%&quot;,
+&quot;boost&quot;: 1
+}
+}
+}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>phrase search</p><p>(1) 短语搜索, 与全文搜索有什么区别呢?</p><p>全文搜索会将&quot;查询词&quot;拆解开来, 去倒排索引中一一匹配, 只要能匹配上任意一个拆解后的关键词, 就可以作为结果返回. 而短语搜索在全文搜索的基础上, 要求关键词必须相邻. (注意短语搜索的&quot;查询词&quot;也是会被分词的)</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match&quot;: {
+&quot;title&quot;: &quot;first article&quot;
+}
+}
+}
+//三条记录都会搜索出来
+GET /website/article/_search
+{
+“query”: {
+“match_phrase”: {
+“title”: “first article”
+}
+}
+}
+//只有一条记录
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(2) 原理:</p><p>短语搜索的原理实际上是相邻匹配(proximity match). Lucene建立的倒排索引结构为: 关键词 -&gt; 文档号, 在文档中的位置, 在文档出现的频率等, 当一个&quot;查询词&quot;包含多个关键词时, Lucene先通过关键词找到对应的文档号, 判断多个关键词所在的文档号是否相同, 然后再判断在文档中的位置是否相邻.</p><p>(3) 实例</p><p>短语搜索默认是搜索相邻的关键词, 但也可以搜索间隔几个位置的关键词. 间隔越小相关度分数越高.</p><p>a. 从content中搜索&quot;first website&quot;, first和website必须在同一个doc中, 且间隔不能超过10.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match_phrase&quot;: {
+&quot;content&quot;: {
+&quot;query&quot;: &quot;first website&quot;,
+&quot;slop&quot;: 10
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b. 全文搜索和短语搜索配合使用. 从content中搜索&quot;first website&quot;, 在优先满足召回率的前提下, 尽可能提高精准度.</p><p>召回率: 从n个doc中搜索, 有多少个doc返回. 精准度: 让两个关键词间隔越小的doc相关度分数越高.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;bool&quot;: {
+&quot;must&quot;: [
+{
+&quot;match&quot;: {
+&quot;content&quot;: &quot;first website&quot;
+}
+}
+],
+&quot;should&quot;: [
+{
+&quot;match_phrase&quot;: {
+&quot;content&quot;: {
+&quot;query&quot;: &quot;first website&quot;,
+&quot;slop&quot;: 10
+}
+}
+}
+]
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(4) 优化短语搜索: rescore</p><p>短语搜索的性能要比全文搜索的性能低10倍以上, 所以一般我们要用短语搜索时都会配合全文搜索使用. 先通过全文搜索出匹配的doc, 然后对相关度分数最高的前n条doc进行rescore短语搜索. (这里只能用于分页搜索)</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match&quot;: {
+&quot;content&quot;: &quot;first website&quot;
+}
+},
+&quot;rescore&quot;: {
+&quot;window_size&quot;: 20,
+&quot;query&quot;: {
+&quot;rescore_query&quot;: {
+&quot;match_phrase&quot;: {
+&quot;content&quot;: {
+&quot;query&quot;: &quot;first website&quot;,
+&quot;slop&quot;: 10
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(5) match_phrase_prefix</p><p>匹配短语的前缀, 用于做搜索推荐. 比如我们在百度输入一个关键词, 立马就会推荐一系列查询词, 这个就是搜索推荐.</p><p>这个功能不推荐使用, 因为性能太差, 我们一般通过ngram分词机制来实现搜索推荐.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match_phrase_prefix&quot;: {
+&quot;title&quot;: &quot;my sec&quot;
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="fuzzy-search" tabindex="-1"><a class="header-anchor" href="#fuzzy-search" aria-hidden="true">#</a> fuzzy search</h5><p>模糊搜索, 自动将拼写错误的搜索文本进行纠正, 然后去匹配索引中的数据.</p><p>(1) 语法一</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;fuzzy&quot;: {
+&quot;title.keyword&quot;: {
+&quot;value&quot;: &quot;my wecond article&quot;,
+&quot;fuzziness&quot;: 2
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>fuzziness代表最多纠正多少个字母, 默认为2. 搜索文本不会被分词.</p><p>(2) 语法二</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;match&quot;: {
+&quot;title&quot;: {
+&quot;query&quot;: &quot;my wecond article&quot;,
+&quot;fuzziness&quot;: &quot;auto&quot;,
+&quot;operator&quot;: &quot;and&quot;
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>fuzziness可以给定个数, 也可以设置为auto.</p><h5 id="term-search" tabindex="-1"><a class="header-anchor" href="#term-search" aria-hidden="true">#</a> term search</h5><p>term查询, 是一种结构化查询, &quot;查询词&quot;不会被分词, 结果要么存在要么不存在, 不关心结果的score相关度. 如果查询text属性, 需要改为查询filed.keyword.</p><p>(1) 实例</p><p>和短语搜索对比一下可以更好的理解:</p><ol><li>phrase搜索</li></ol><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>   GET /website/article/_search
+   {
+   &quot;query&quot;: {
+   &quot;match_phrase&quot;: {
+   &quot;title&quot;: &quot;my first article&quot;
+   }
+   }
+   }
+   //存在一条结果
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2.term搜索text</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+“query”: {
+“term”: {
+“title”: {
+“value”: “my first article”
+}
+}
+}
+}
+//不存在结果, 原因是词语查询的value值不会被分词, 也就是直接查询&quot;my first article&quot;.
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>3。term搜索keyword</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+“query”: {
+“term”: {
+“title.keyword”: {
+“value”: “my first article”
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>//存在一条结果, filed.keyword属性不分词.</p><p>(2) 常用语法</p><p>为了提高效率, term搜索一般与filter和constant_score联用. constant_score 以固定的评分来执行查询(默认为1), 而filter不计算score相关度, 因此执行效率非常高.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;term&quot;: {
+&quot;post_date&quot;: &quot;2017-01-03&quot;
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="query-filter" tabindex="-1"><a class="header-anchor" href="#query-filter" aria-hidden="true">#</a> query filter</h4><p>(1) 语法</p><p>query filter 用于过滤数据, 不参与score相关度计算, 效率很高. 适用于范围查询以及不计算相关度score的精确查询(filter + term)</p><p>(2) 实例</p><p>a. 从website索引中查询, 作者id必须大于等于11402，同时发表时间必须是2017-01-02.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;bool&quot;: {
+&quot;must&quot;: [
+{
+&quot;term&quot;: {
+&quot;post_date&quot;: &quot;2017-01-02&quot;
+}
+},
+{
+&quot;range&quot;: {
+&quot;author_id&quot;: {
+&quot;gte&quot;: 11402
+}
+}
+}
+]
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b. 搜索发布日期为2017-01-01, 或者文章标题为&quot;my first article&quot;的帖子, 同时要求文章的发布日期绝对不为2017-01-02.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;bool&quot;: {
+&quot;should&quot;: [
+{
+&quot;term&quot;:{
+&quot;post_date&quot;: &quot;2017-01-01&quot;
+}
+},
+{
+&quot;term&quot;:{
+&quot;title.keyword&quot;: &quot;my first article&quot;
+}
+}
+],
+&quot;must_not&quot;: {
+&quot;term&quot;: {
+&quot;post_date&quot;: &quot;2017-01-02&quot;
+}
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>c. 搜索文章标题为&quot;my first article&quot;, 或者是文章标题为&quot;my second article&quot;, 而且发布日期为&quot;2017-01-01&quot;的文章.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;bool&quot;: {
+&quot;should&quot;: [
+{
+&quot;term&quot;:{
+&quot;title.keyword&quot;: &quot;my first article&quot;
+}
+},
+{
+&quot;bool&quot;: {
+&quot;must&quot;: [
+{
+&quot;term&quot;:{
+&quot;title.keyword&quot;: &quot;my second article&quot;
+}
+},
+{
+&quot;term&quot;:{
+&quot;post_date&quot;: &quot;2017-01-01&quot;
+}
+}
+]
+}
+}
+]
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>d. 搜索文章标题为&quot;my first article&quot;或&quot;my second article&quot;的文章</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;terms&quot;: {
+&quot;title.keyword&quot;: [
+&quot;my first article&quot;,
+&quot;my second article&quot;
+]
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>e. 搜索tags中包含java的帖子.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;terms&quot;: {
+&quot;tags.keyword&quot;: [
+&quot;java&quot;
+]
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>注意, 这里必须用terms, 因为term不支持数组.</p><p>d. 搜索tags中只包含java的帖子.</p><p>如果想搜索tags中只包含java的帖子, 就需要新增一个字段tags_count, 表示tags中有几个tag, 否则就无法搜索.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search
+{
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;bool&quot;: {
+&quot;must&quot;: [
+{
+&quot;terms&quot;: {
+&quot;tags.keyword&quot;: [
+&quot;java&quot;
+]
+}
+},
+{
+&quot;term&quot;: {
+&quot;tags_count&quot;: &quot;1&quot;
+}
+}
+]
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>对上面这几实例做个总结, should表示或, must表示且.</p><h5 id="scroll-search" tabindex="-1"><a class="header-anchor" href="#scroll-search" aria-hidden="true">#</a> scroll search</h5><p>scroll滚动搜索，可以先搜索一批数据，然后下次再搜索一批数据，以此类推，直到搜索出全部的数据来. 它的原理是每次查询时都生成一个游标scroll_id, 后续的查询根据这个游标去获取数据, 直到返回的hits字段为空. scroll_id相当于建立了一个历史快照, 在此之后的写操作不会影响到这个快照的结果, 也就意味着其不能用于实时查询.</p><p>滚动查询用来解决深度分页的问题, 就类似于sql语句: select * from comment where id &gt; 1000 order by id asc limit 1000.</p><p>(1) 语法</p><p>查询时指定一个参数scroll, 代表scroll_id的有效期, 过期后scroll_id会被ES自动清除. 如果不需要特定的排序, 按照文档创建时间排序更高效. scroll_id只能使用一次, 使用过后会被自动删除. 最后一次查询, hits为空时也会返回一个scroll_id, 我们需要手动删除来释放资源. (2) 实例</p><p>a. 首次查询</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /website/article/_search?scroll=1s
+{
+&quot;query&quot;: {
+&quot;match_all&quot;: {}
+},
+&quot;sort&quot;: [
+{
+&quot;_doc&quot;: {
+&quot;order&quot;: &quot;asc&quot;
+}
+}
+],
+&quot;size&quot;: 1
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b. 后续查询</p><p>scroll_id只能使用一次.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /_search/scroll?scroll=1s&amp;scroll_id=DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAATqFmRBQ3FwUFVrUUw2VHgyU2I5UWRMRlEAAAAAAAAE6xZkQUNxcFBVa1FMNlR4MlNiOVFkTEZRAAAAAAAABOwWZEFDcXBQVWtRTDZUeDJTYjlRZExGUQAAAAAAAATtFmRBQ3FwUFVrUUw2VHgyU2I5UWRMRlEAAAAAAAAE7hZkQUNxcFBVa1FMNlR4MlNiOVFkTEZR
+{
+}
+或者
+
+GET /_search/scroll
+{
+“scroll”:“1s”, “scroll_id”:“DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAATqFmRBQ3FwUFVrUUw2VHgyU2I5UWRMRlEAAAAAAAAE6xZkQUNxcFBVa1FMNlR4MlNiOVFkTEZRAAAAAAAABOwWZEFDcXBQVWtRTDZUeDJTYjlRZExGUQAAAAAAAATtFmRBQ3FwUFVrUUw2VHgyU2I5UWRMRlEAAAAAAAAE7hZkQUNxcFBVa1FMNlR4MlNiOVFkTEZR”
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>c. 删除指定scroll_id</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>DELETE /_search/scroll
+{
+&quot;scroll_id&quot;: &quot;scroll_id=DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAAiXFmRBQ3FwUFVrUUw2VHgyU2I5UWRMRlEAAAAAAAAImBZkQUNxcFBVa1FMNlR4MlNiOVFkTEZRAAAAAAAACJkWZEFDcXBQVWtRTDZUeDJTYjlRZExGUQAAAAAAAAiaFmRBQ3FwUFVrUUw2VHgyU2I5UWRMRlEAAAAAAAAImxZkQUNxcFBVa1FMNlR4MlNiOVFkTEZR==&quot;
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>d. 删除所有scroll_id</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>DELETE /_search/scroll/_all
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="聚合" tabindex="-1"><a class="header-anchor" href="#聚合" aria-hidden="true">#</a> 聚合</h4><p>聚合包括分组和统计, 其中分组操作包括term, histogram, date_histogram, filter. 统计操作包括count, avg, max, min, sum, cardinality, percentiles, percentile_ranks等.</p><p>注意: 聚合的属性不能被分词.</p><p>语法</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /index/type/_search
+{
+size: 0,
+&quot;aggs&quot;: {
+&quot;NAME&quot;: {
+&quot;AGG_TYPE&quot;: {
+&quot;field&quot;: &quot;field_name&quot;
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>NAME为聚合操作的名称, 可以取一个有参考意义的名称. AGG_TYPE为分组或统计操作, 当进行分组操作时, 会自动生成一个doc_count, 统计了组内数据的数量. 默认按照doc_count降序排列. size=0的原因是不需要搜索结果, 如果需要搜索结果, 则去除size=0.</p><p>实例</p><p>(1) 实例数据</p><p>新增电视机销售记录, 用于接下来的实例分析.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>POST /televisions/sales/_bulk
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 1000, &quot;color&quot; : &quot;红色&quot;, &quot;brand&quot; : &quot;长虹&quot;, &quot;sold_date&quot; : &quot;2016-10-28&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 2000, &quot;color&quot; : &quot;红色&quot;, &quot;brand&quot; : &quot;长虹&quot;, &quot;sold_date&quot; : &quot;2016-11-05&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 3000, &quot;color&quot; : &quot;绿色&quot;, &quot;brand&quot; : &quot;小米&quot;, &quot;sold_date&quot; : &quot;2016-05-18&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 1500, &quot;color&quot; : &quot;蓝色&quot;, &quot;brand&quot; : &quot;TCL&quot;, &quot;sold_date&quot; : &quot;2016-07-02&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 1200, &quot;color&quot; : &quot;绿色&quot;, &quot;brand&quot; : &quot;TCL&quot;, &quot;sold_date&quot; : &quot;2016-08-19&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 2000, &quot;color&quot; : &quot;红色&quot;, &quot;brand&quot; : &quot;长虹&quot;, &quot;sold_date&quot; : &quot;2016-11-05&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 8000, &quot;color&quot; : &quot;红色&quot;, &quot;brand&quot; : &quot;三星&quot;, &quot;sold_date&quot; : &quot;2017-01-01&quot; }
+{ &quot;index&quot;: {}}
+{ &quot;price&quot; : 2500, &quot;color&quot; : &quot;蓝色&quot;, &quot;brand&quot; : &quot;小米&quot;, &quot;sold_date&quot; : &quot;2017-02-12&quot; }
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>mapping结构如下:</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/_mapping/sales
+{
+&quot;televisions&quot;: {
+&quot;mappings&quot;: {
+&quot;sales&quot;: {
+&quot;properties&quot;: {
+&quot;brand&quot;: {
+&quot;type&quot;: &quot;text&quot;,
+&quot;fields&quot;: {
+&quot;keyword&quot;: {
+&quot;type&quot;: &quot;keyword&quot;,
+&quot;ignore_above&quot;: 256
+}
+}
+},
+&quot;color&quot;: {
+&quot;type&quot;: &quot;text&quot;,
+&quot;fields&quot;: {
+&quot;keyword&quot;: {
+&quot;type&quot;: &quot;keyword&quot;,
+&quot;ignore_above&quot;: 256
+}
+}
+},
+&quot;price&quot;: {
+&quot;type&quot;: &quot;long&quot;
+},
+&quot;sold_date&quot;: {
+&quot;type&quot;: &quot;date&quot;
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(2) 基础聚合实例</p><p>a. 统计哪种颜色的电视销量最高</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;max_sales_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>分组后会计算出每组数据个数(doc_count), 默认按照doc_count降序显示.</p><p>b. 统计每种颜色电视的平均价格</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;
+},
+&quot;aggs&quot;: {
+&quot;avg_price&quot;: {
+&quot;avg&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>c. 统计每种颜色电视的平均价格, 以及统计每种颜色下每个品牌的平均价格.</p><p>这里就涉及到嵌套分组了, 也叫做多层下钻分析.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;
+},
+&quot;aggs&quot;: {
+&quot;color_avg_price&quot;: {
+&quot;avg&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+},
+&quot;group_by_brand&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;brand.keyword&quot;
+},
+&quot;aggs&quot;: {
+&quot;brand_avg_price&quot;: {
+&quot;avg&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>d. 统计每种颜色电视机的最大最小价格</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;
+},
+&quot;aggs&quot;: {
+&quot;max_price&quot;: {
+&quot;max&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+},
+&quot;min_price&quot;: {
+&quot;min&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>e. 统计每种颜色电视机的总销售额</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;
+},
+&quot;aggs&quot;: {
+&quot;sum_price&quot;: {
+&quot;sum&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(2) 高级聚合实例</p><p>a. 按价格区间统计电视销量和销售额</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_price_range&quot;: {
+&quot;histogram&quot;: {
+&quot;field&quot;: &quot;price&quot;,
+&quot;interval&quot;: 2000
+},
+&quot;aggs&quot;: {
+&quot;sum_price&quot;: {
+&quot;sum&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>b. 统计 2016-01-01 ~ 2017-12-31 范围内每个月的电视机销量.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_sold_date&quot;: {
+&quot;date_histogram&quot;: {
+&quot;field&quot;: &quot;sold_date&quot;,
+&quot;interval&quot;: &quot;month&quot;,
+&quot;format&quot;: &quot;yyyy-MM-dd&quot;,
+&quot;min_doc_count&quot;: 0,
+&quot;extended_bounds&quot;: {
+&quot;min&quot;: &quot;2016-01-01&quot;,
+&quot;max&quot;: &quot;2017-12-31&quot;
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>c. 统计 2016-01-01 ~ 2017-12-31 范围内每个季度的销售额以及该季度下每个品牌的销售额</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_sold_date&quot;: {
+&quot;date_histogram&quot;: {
+&quot;field&quot;: &quot;sold_date&quot;,
+&quot;interval&quot;: &quot;quarter&quot;,
+&quot;format&quot;: &quot;yyyy-MM-dd&quot;,
+&quot;min_doc_count&quot;: 0,
+&quot;extended_bounds&quot;: {
+&quot;min&quot;: &quot;2016-01-01&quot;,
+&quot;max&quot;: &quot;2017-12-31&quot;
+}
+},
+&quot;aggs&quot;: {
+&quot;sum_price&quot;: {
+&quot;sum&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+},
+&quot;group_by_brand&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;brand.keyword&quot;
+},
+&quot;aggs&quot;: {
+&quot;brand_sum_price&quot;: {
+&quot;sum&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>d. 统计每种颜色电视的销售额, 按照销售额升序排序</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;,
+&quot;order&quot;: {
+&quot;sum_price&quot;: &quot;asc&quot;
+}
+},
+&quot;aggs&quot;: {
+&quot;sum_price&quot;: {
+&quot;sum&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>e. 统计每种颜色下的每个品牌电视机的总销售额, 并按这个销售额升序排序.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;
+},
+&quot;aggs&quot;: {
+&quot;group_by_brand&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;brand.keyword&quot;,
+&quot;order&quot;: {
+&quot;color_brand_sum_price&quot;: &quot;asc&quot;
+}
+},
+&quot;aggs&quot;: {
+&quot;color_brand_sum_price&quot;: {
+&quot;sum&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>f. 统计每个月的电视销量, 并按品牌去重.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_sold_date&quot;: {
+&quot;date_histogram&quot;: {
+&quot;field&quot;: &quot;sold_date&quot;,
+&quot;interval&quot;: &quot;month&quot;,
+&quot;format&quot;: &quot;yyyy-MM-dd&quot;
+},
+&quot;aggs&quot;: {
+&quot;distinct_brand&quot;: {
+&quot;cardinality&quot;: {
+&quot;field&quot;: &quot;brand.keyword&quot;,
+&quot;precision_threshold&quot;: 100
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>cardinality 去重采用的是近似估计的算法, 错误率在5%左右, 其中precision_threshold指定的值为100%准确去重的数量, 值设置的越大, 内存开销也就越大.</p><p>g. 统计50%, 90% 和 99%的电视的最大价格(一般用于统计api请求的最长延迟时间)</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;price_percentiles&quot;: {
+&quot;percentiles&quot;: {
+&quot;field&quot;: &quot;price&quot;,
+&quot;percents&quot;: [
+50,
+90,
+99
+]
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>h. 统计每个品牌的电视机的价格, 在1000以内, 2000以内, 3000以内, 4000以内的所占比例.</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;aggs&quot;: {
+&quot;group_by_brand&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;brand.keyword&quot;
+},
+&quot;aggs&quot;: {
+&quot;price_percentile_ranks&quot;: {
+&quot;percentile_ranks&quot;: {
+&quot;field&quot;: &quot;price&quot;,
+&quot;values&quot;: [
+1000,
+2000,
+3000,
+4000
+]
+}
+}
+}
+}
+}
+}
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>(3) 搜索+聚合</p><p>a. 统计指定品牌下(小米)每个颜色的销量</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;query&quot;: {
+&quot;term&quot;: {
+&quot;brand.keyword&quot;: {
+&quot;value&quot;: &quot;小米&quot;
+}
+}
+},
+&quot;aggs&quot;: {
+&quot;group_by_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;
+}
+}
+}
+}
+或者
+
+GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;term&quot;: {
+&quot;brand.keyword&quot;: &quot;小米&quot;
+}
+}
+}
+},
+&quot;aggs&quot;: {
+&quot;group_by_color&quot;: {
+&quot;terms&quot;: {
+&quot;field&quot;: &quot;color.keyword&quot;
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>其实对于聚合来说, 因为不需要搜索结果, 可以直接用filter, 效率更高.</p><p>b. 统计单个品牌(长虹)与所有品牌销售额对比</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;query&quot;: {
+&quot;constant_score&quot;: {
+&quot;filter&quot;: {
+&quot;term&quot;: {
+&quot;brand.keyword&quot;: &quot;长虹&quot;
+}
+}
+}
+},
+&quot;aggs&quot;: {
+&quot;single_brand_sum_price&quot;: {
+&quot;sum&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+},
+&quot;all_brand&quot;: {
+&quot;global&quot;: {},
+&quot;aggs&quot;: {
+&quot;all_brand_sum_price&quot;: {
+&quot;sum&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>global 表示将所有数据纳入聚合的scope，忽视前面的query过滤.</p><p>c. 统计指定品牌(长虹)最近一个月和最近半年的平均价格</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>GET /televisions/sales/_search
+{
+&quot;size&quot;: 0,
+&quot;query&quot;: {
+&quot;term&quot;: {
+&quot;brand.keyword&quot;: {
+&quot;value&quot;: &quot;长虹&quot;
+}
+}
+},
+&quot;aggs&quot;: {
+&quot;recent_one_month&quot;: {
+&quot;filter&quot;: {
+&quot;range&quot;: {
+&quot;sold_date&quot;: {
+&quot;gte&quot;: &quot;now-1M&quot;
+}
+}
+},
+&quot;aggs&quot;: {
+&quot;recent_one_month_avg_price&quot;: {
+&quot;avg&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+},
+&quot;recent_six_month&quot;: {
+&quot;filter&quot;: {
+&quot;range&quot;: {
+&quot;sold_date&quot;: {
+&quot;gte&quot;: &quot;now-6M&quot;
+}
+}
+},
+&quot;aggs&quot;: {
+&quot;recent_six_month_avg_price&quot;: {
+&quot;avg&quot;: {
+&quot;field&quot;: &quot;price&quot;
+}
+}
+}
+}
+}
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!----><footer class="page-meta"><div class="meta-item edit-link"><a href="https://github.com/easywhx/learning/edit/main/note/elasticsearch/es的基本使用.md" rel="noopener noreferrer" target="_blank" aria-label="编辑此页" class="nav-link label"><!--[--><svg xmlns="http://www.w3.org/2000/svg" class="icon edit-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="edit icon"><path d="M430.818 653.65a60.46 60.46 0 0 1-50.96-93.281l71.69-114.012 7.773-10.365L816.038 80.138A60.46 60.46 0 0 1 859.225 62a60.46 60.46 0 0 1 43.186 18.138l43.186 43.186a60.46 60.46 0 0 1 0 86.373L588.879 565.55l-8.637 8.637-117.466 68.234a60.46 60.46 0 0 1-31.958 11.229z"></path><path d="M728.802 962H252.891A190.883 190.883 0 0 1 62.008 771.98V296.934a190.883 190.883 0 0 1 190.883-192.61h267.754a60.46 60.46 0 0 1 0 120.92H252.891a69.962 69.962 0 0 0-69.098 69.099V771.98a69.962 69.962 0 0 0 69.098 69.098h475.911A69.962 69.962 0 0 0 797.9 771.98V503.363a60.46 60.46 0 1 1 120.922 0V771.98A190.883 190.883 0 0 1 728.802 962z"></path></svg><!--]-->编辑此页<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!----></a></div><div class="meta-item update-time"><span class="label">上次编辑于: </span><!----></div><div class="meta-item contributors"><span class="label">贡献者: </span><!--[--><!--[--><span class="contributor" title="email: wanhx@xports.cn">wanhx</span><!--]--><!--]--></div></footer><nav class="page-nav"><a href="/note/elasticsearch/es%E5%92%8Ckibana%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.html" class="nav-link prev" aria-label="es和kibana安装配置"><div class="hint"><span class="arrow left"></span>上一页</div><div class="link"><!---->es和kibana安装配置</div></a><!----></nav><!----><!----><!--]--></main><!--]--><!----><!--]--></div><!--]--><!----><!--]--></div>
+    <script type="module" src="/assets/app.4d667c68.js" defer></script>
+  </body>
+</html>

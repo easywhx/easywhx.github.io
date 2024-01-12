@@ -1,0 +1,28 @@
+import{_ as t}from"./_plugin-vue_export-helper.cdc0426e.js";import{o as d,c as l,f as n}from"./app.4d667c68.js";const e={},i=n(`<h1 id="markdown\u5FEB\u6377\u952E" tabindex="-1"><a class="header-anchor" href="#markdown\u5FEB\u6377\u952E" aria-hidden="true">#</a> Markdown\u5FEB\u6377\u952E</h1><h3 id="\u4E00\u3001\u529F\u80FD\u5FEB\u6377\u952E" tabindex="-1"><a class="header-anchor" href="#\u4E00\u3001\u529F\u80FD\u5FEB\u6377\u952E" aria-hidden="true">#</a> \u4E00\u3001\u529F\u80FD\u5FEB\u6377\u952E</h3><p>1\u3001\u53EF\u4EE5\u5728\u754C\u9762\u53F3\u4E0A\u89D2\u70B9\u51FB\u5E2E\u52A9\u5F39\u51FA\u754C\u9762\u8FDB\u884C\u5FEB\u6377\u952E\u7684\u67E5\u770B\u3002 2\u3001\u76F4\u63A5\u5728Keyboard\u4E0A\u7528\u7B26\u53F7\u7EC4\u5408\u5F62\u5F0F\u8FDB\u884C\u64CD\u4F5C\u3002</p><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>\u64A4\u9500\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Z&lt;/kbd&gt;
+\u91CD\u505A\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Y&lt;/kbd&gt;
+\u52A0\u7C97\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;B&lt;/kbd&gt;
+\u659C\u4F53\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;I&lt;/kbd&gt;
+\u6807\u9898\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;H&lt;/kbd&gt;
+\u65E0\u5E8F\u5217\u8868\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;U&lt;/kbd&gt;
+\u6709\u5E8F\u5217\u8868\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;O&lt;/kbd&gt;
+\u68C0\u67E5\u5217\u8868\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;
+\u63D2\u5165\u4EE3\u7801\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;K&lt;/kbd&gt;
+\u63D2\u5165\u94FE\u63A5\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;L&lt;/kbd&gt;
+\u63D2\u5165\u56FE\u7247\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;Shift&lt;/kbd&gt; + &lt;kbd&gt;G&lt;/kbd&gt;
+\u67E5\u627E\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;F&lt;/kbd&gt;
+\u66FF\u6362\uFF1A&lt;kbd&gt;Ctrl/Command&lt;/kbd&gt; + &lt;kbd&gt;G&lt;/kbd&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>\u663E\u793A\u6548\u679C\u5982\u4E0B\uFF1A
+\u64A4\u9500\uFF1ACtrl/Command + Z
+\u91CD\u505A\uFF1ACtrl/Command + Y
+\u52A0\u7C97\uFF1ACtrl/Command + B
+\u659C\u4F53\uFF1ACtrl/Command + I
+\u6807\u9898\uFF1ACtrl/Command + Shift + H
+\u65E0\u5E8F\u5217\u8868\uFF1ACtrl/Command + Shift + U
+\u6709\u5E8F\u5217\u8868\uFF1ACtrl/Command + Shift + O
+\u68C0\u67E5\u5217\u8868\uFF1ACtrl/Command + Shift + C
+\u63D2\u5165\u4EE3\u7801\uFF1ACtrl/Command + Shift + K
+\u63D2\u5165\u94FE\u63A5\uFF1ACtrl/Command + Shift + L
+\u63D2\u5165\u56FE\u7247\uFF1ACtrl/Command + Shift + G
+\u67E5\u627E\uFF1ACtrl/Command + F
+\u66FF\u6362\uFF1ACtrl/Command + G
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="\u4E8C\u3001\u521B\u5EFA\u6807\u9898" tabindex="-1"><a class="header-anchor" href="#\u4E8C\u3001\u521B\u5EFA\u6807\u9898" aria-hidden="true">#</a> \u4E8C\u3001\u521B\u5EFA\u6807\u9898</h3><p>\u5728\u7F16\u8F91\u754C\u9762\u76F4\u63A5\u8F93\u51651\u6B21#\uFF0C\u5E76\u6309\u4E0Bspace\u540E\uFF0C\u5C06\u751F\u62101\u7EA7\u6807\u9898\u3002</p><p>\u8F93\u51652\u6B21#\uFF0C\u5E76\u6309\u4E0Bspace\u540E\uFF0C\u5C06\u751F\u62102\u7EA7\u6807\u9898\u3002</p><p>\u4EE5\u6B64\u7C7B\u63A8\uFF0C\u73B0\u9636\u6BB5Markdown\u652F\u63016\u7EA7\u6807\u9898\u3002</p><h3 id="\u4E09\u3001\u6539\u53D8\u6587\u672C\u6837\u5F0F" tabindex="-1"><a class="header-anchor" href="#\u4E09\u3001\u6539\u53D8\u6587\u672C\u6837\u5F0F" aria-hidden="true">#</a> \u4E09\u3001\u6539\u53D8\u6587\u672C\u6837\u5F0F</h3><p><em>\u5F3A\u8C03\u6587\u672C</em> <em>\u5F3A\u8C03\u6587\u672C</em></p><p>\u793A\u4F8B\uFF1A\u5F3A\u8C03\u6587\u672C \u5F3A\u8C03\u6587\u672C</p><p><strong>\u52A0\u7C97\u6587\u672C</strong> <strong>\u52A0\u7C97\u6587\u672C</strong></p><p>\u793A\u4F8B\uFF1A\u52A0\u7C97\u6587\u672C \u52A0\u7C97\u6587\u672C</p><p>==\u6807\u8BB0\u6587\u672C==</p><p>\u793A\u4F8B\uFF1A\u6807\u8BB0\u672C\u6587</p><p><s>\u5220\u9664\u6587\u672C</s></p><p>\u793A\u4F8B\uFF1A\u5220\u9664\u6587\u672C</p><blockquote><p>\u5F15\u7528\u6587\u672C</p></blockquote><p>\u793A\u4F8B\uFF1A</p><p>\u5F15\u7528\u6587\u672C</p><p>H~2~O\uFF08\u7B80\u5355\u7684\u5E26\u89D2\u6807\u7684\u8868\u8FBE\u5F0F\uFF09</p><p>\u793A\u4F8B\uFF1AH2O</p><blockquote><p>2^10^\uFF08\u7B80\u5355\u7684\u6307\u6570\u8868\u8FBE\u5F0F\uFF09</p></blockquote><p>\u793A\u4F8B\uFF1A210</p>`,25),a=[i];function r(b,s){return d(),l("div",null,a)}const k=t(e,[["render",r],["__file","\u3010Markdown\u7F16\u8F91\u5668\u5FEB\u6377\u952E\u3011\u6C47\u603B.html.vue"]]);export{k as default};
